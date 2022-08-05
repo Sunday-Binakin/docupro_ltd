@@ -10,7 +10,7 @@
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
 
-    <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('backend/assets/images/docupro_favicon.ico') }}">
 
     <!-- Bootstrap Css -->
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
@@ -34,9 +34,9 @@
                     <div class="text-center mt-4">
                         <div class="mb-3">
                             <a href="index.html" class="auth-logo">
-                                <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30"
+                                <img src="{{ asset('backend/assets/images/docupro-dark.png') }}" height="70"
                                     class="logo-dark mx-auto" alt="">
-                                <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30"
+                                <img src="{{ asset('backend/assets/images/docupro-light.png') }}" height="70"
                                     class="logo-light mx-auto" alt="">
                             </a>
                         </div>

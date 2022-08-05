@@ -1,5 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
+        {{-- <div img src="{{ asset('backend/assets/images/auth-gb.jpg') }}"> --}}
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -35,5 +36,6 @@
                 </button>
             </form>
         </div>
+        {{-- </div> --}}
     </x-auth-card>
 </x-guest-layout>
