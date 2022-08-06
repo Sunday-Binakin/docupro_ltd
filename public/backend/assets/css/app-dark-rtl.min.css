@@ -2080,7 +2080,7 @@ body {
   background-color: #2d3448;
 }
 .sp-container button.sp-choose {
-  background-color: #6fd088;
+  background-color: #1f8acc;
   margin-right: 5px;
   margin-left: 0;
 }
@@ -2213,17 +2213,17 @@ body {
 }
 
 .rs-range-success .rs-range-color {
-  background-color: #6fd088;
+  background-color: #1f8acc;
 }
 .rs-range-success .rs-handle-dot {
   background-color: #cbeed4;
-  border-color: #6fd088;
+  border-color: #1f8acc;
 }
 .rs-range-success .rs-handle-dot:after {
-  background-color: #6fd088;
+  background-color: #1f8acc;
 }
 .rs-range-success.rs-circle-border .rs-handle {
-  background-color: #6fd088;
+  background-color: #1f8acc;
 }
 .rs-range-success.outer-border-dot .rs-border.rs-outer {
   border-color: #cbeed4;
@@ -2429,7 +2429,7 @@ body {
   color: #1f8ac9;
 }
 .swal2-icon.swal2-success [class^=swal2-success-line] {
-  background-color: #6fd088;
+  background-color: #1f8acc;
 }
 .swal2-icon.swal2-success .swal2-success-ring {
   border-color: rgba(111, 208, 136, 0.3);
@@ -2510,7 +2510,7 @@ body {
 }
 
 .toast-success {
-  border: 2px solid #6fd088 !important;
+  border: 2px solid #1f8acc !important;
   background-color: rgba(111, 208, 136, 0.8) !important;
 }
 
@@ -2823,7 +2823,7 @@ input[switch=default]:checked + label:before {
 }
 
 input[switch=bool]:checked + label {
-  background-color: #6fd088;
+  background-color: #1f8acc;
 }
 
 input[switch=default]:checked + label {
@@ -2835,7 +2835,7 @@ input[switch=primary]:checked + label {
 }
 
 input[switch=success]:checked + label {
-  background-color: #6fd088;
+  background-color: #1f8acc;
 }
 
 input[switch=info]:checked + label {
@@ -2991,7 +2991,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > td:first-child:bef
 table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > th:first-child:before {
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
           box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-  background-color: #6fd088;
+  background-color: #1f8acc;
   bottom: auto;
 }
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before,

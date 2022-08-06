@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('frontend.index');
 })->name('home');
 
+Route::get('/very', function(){
+    return view('auth.very');
+
+});
 Route::middleware('auth')->group(function () {
     // creating a group route for all admin actions
     Route::controller(AdminController::class)->group(function () {

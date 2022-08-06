@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Register | Admin </title>
+    <title>Docupro Admin Panel </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -33,7 +33,7 @@
 
                     <div class="text-center mt-4">
                         <div class="mb-3">
-                            <a href="index.html" class="auth-logo">
+                            <a href="{{ url()->previous()?route('login'): route('register') }}" class="auth-logo">
                                 <img src="{{ asset('backend/assets/images/docupro-dark.png') }}" height="70"
                                     class="logo-dark mx-auto" alt="">
                                 <img src="{{ asset('backend/assets/images/docupro-light.png') }}" height="70"
