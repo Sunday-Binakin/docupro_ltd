@@ -22,10 +22,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.index');
+    return view('website.home_page');
 })->name('home');
 
 Route::get('/very', function(){
+     #006994
     return view('auth.very');
 
 });
