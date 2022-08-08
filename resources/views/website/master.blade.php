@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Home One || Insur || Insur HTML 5 Template </title>
+    <title> Docupro Ghana Limited</title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ asset('website/assets/images/favicons/apple-touch-icon.png') }}" />
@@ -112,105 +112,13 @@
                     </div>
                 </div>
             </div>
-            <nav class="main-menu clearfix">
-                <div class="main-menu__wrapper clearfix">
-                    <div class="container">
-                        <div class="main-menu__wrapper-inner clearfix">
-                            <div class="main-menu__left">
-                                <div class="main-menu__logo">
-                                    <a href=""><img style="height: 60px"
-                                            src="{{ asset('website/assets/images/resources/logo-1.png') }} " alt=""></a>
-                                </div>
-                                <div class="main-menu__main-menu-box">
-                                    <div class="main-menu__main-menu-box-inner">
-                                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                                        <ul class="main-menu__list">
-                                            <li class="dropdown current megamenu">
-                                                <a href="">Home </a>
-                                                
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Pages</a>
-                                                <ul>
-                                                    <li><a href="about.html">About</a></li>
-                                                    <li><a href="team-page.html">Team</a></li>
-                                                    <li><a href="team-carousel.html">Team Carousel</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                    <li><a href="testimonial.html">Testimonials</a></li>
-                                                    <li><a href="testimonial-carousel.html">Teatimonials Carousel</a>
-                                                    </li>
-                                                    <li><a href="pricing.html">Pricing</a></li>
-                                                    <li><a href="faq.html">FAQs</a></li>
-                                                    <li><a href="404.html">404 Error</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Insurance </a>
-                                                <ul>
-                                                    <li><a href="insurance-01.html">Insurance 01</a></li>
-                                                    <li><a href="insurance-02.html">Insurance 02</a></li>
-                                                    <li><a href="car-insurance.html">Car insurance</a></li>
-                                                    <li><a href="life-insurance.html">Life insurance</a></li>
-                                                    <li><a href="home-insurance.html">Home insurance</a>
-                                                    </li>
-                                                    <li><a href="health-insurance.html">Health insurance</a></li>
-                                                    <li><a href="business-insurance.html">Business insurance</a></li>
-                                                    <li><a href="fire-insurance.html">Fire insurance</a></li>
-                                                    <li><a href="marriage-insurance.html">Marriage insurance</a></li>
-                                                    <li><a href="travel-insurance.html">Travel insurance</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">Portfolio</a>
-                                                <ul>
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="portfolio-carousel.html">Portfolio Carousel</a></li>
-                                                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown">
-                                                <a href="#">News</a>
-                                                <ul>
-                                                    <li><a href="news.html">News</a></li>
-                                                    <li><a href="news-carousel.html">News Carousel</a></li>
-                                                    <li><a href="news-sidebar.html">News Sidebar</a></li>
-                                                    <li><a href="news-details.html">News Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="main-menu__main-menu-box-search-get-quote-btn">
-                                        <div class="main-menu__main-menu-box-search">
-                                            <a href="#"
-                                                class="main-menu__search search-toggler icon-magnifying-glass"></a>
-                                        </div>
-                                        <div class="main-menu__main-menu-box-get-quote-btn-box">
-                                            <a href="contact.html"
-                                                class="thm-btn main-menu__main-menu-box-get-quote-btn">Get a Quote</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main-menu__right">
-                                <div class="main-menu__call">
-                                    <div class="main-menu__call-icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div class="main-menu__call-content">
-                                        <a href="tel:9200368090">+92 (003) 68-090</a>
-                                        <p>Call to Our Experts</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+           @include('website.utils.navbar')
         </header>
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
 
+        
         @yield('page-content')
         <!--Site Footer Start-->
         @include('website.utils.footer');

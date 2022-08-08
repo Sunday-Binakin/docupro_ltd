@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\FooterController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,12 +26,15 @@ Route::get('/', function () {
     return view('website.home_page');
 })->name('home');
 
-Route::get('/very', function(){
-     #006994
-    return view('auth.very');
-
-});
+Route::get('/about/us', function() {
+    return view('website.about_us');
+})->name('about');
+Route::get('/media/room', function() {
+    return view('website.media_room');
+})->name('media');
 Route::middleware('auth')->group(function () {
+    // search bar implementation
+    Route::get('/search',SearchController::class);
     // creating a group route for all admin actions
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/logout', 'destroy')->name('admin.logout');

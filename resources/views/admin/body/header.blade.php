@@ -12,9 +12,10 @@
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('backend/assets/images/docupro-dark.png') }}" alt="logo-sm-light" height="50">
+                        <img src="{{ asset('backend/assets/images/docupro-dark.png') }}" alt="logo-sm-light"
+                            height="50">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('backend/assets/images/docupro-dark.png') }}" alt="logo-light" height="70">
@@ -29,11 +30,19 @@
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input value="{{ $term }}" type="text" class="form-control" placeholder="Search...">
                     <span class="ri-search-line"></span>
                 </div>
             </form>
-
+            <table class="table-auto w-full mb-6">
+                <tbody>
+                    @foreach($results as $result)
+                    <x-dynamic-component :component="class_basename($result)" :data="$result"
+                        :class="$loop->even ? 'bg-gray-200' : ''" />
+                    @endforeach
+                </tbody>
+            </table>
+            {!! $results->withQueryString()->links() !!}
 
         </div>
 
@@ -70,9 +79,11 @@
                             class="ri-user-line align-middle me-1"></i> Profile</a>
                     <a class="dropdown-item" href="{{ route('change.password') }}"><i class="bi bi-wrench "></i> Change
                         Password</a>
-                    {{-- <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i --}}
-                            {{-- class="ri-settings-2-line align-middle me-1"></i> Settings</a> --}}
-                    {{-- <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock --}}
+                    {{-- <a class="dropdown-item d-block" href="#"><span
+                            class="badge bg-success float-end mt-1">11</span><i --}} {{--
+                            class="ri-settings-2-line align-middle me-1"></i> Settings</a> --}}
+                    {{-- <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock
+                        --}}
                         {{-- screen</a> --}}
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i
