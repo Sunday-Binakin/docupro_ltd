@@ -29,9 +29,15 @@ Route::get('/', function () {
 Route::get('/about/us', function() {
     return view('website.about_us');
 })->name('about');
+
 Route::get('/media/room', function() {
     return view('website.media_room');
 })->name('media');
+
+Route::get('/contact/us', function() {
+    return view('website.contact_page');
+})->name('contact.us');
+
 Route::middleware('auth')->group(function () {
     // search bar implementation
     Route::get('/search',SearchController::class);
