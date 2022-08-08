@@ -139,16 +139,20 @@
                     .mapouter {
                         position: relative;
                         text-align: right;
-                        /* height: 500px;
-                        width: 600px; */
+                        height: 100% !important;
+                        /* 500px; */
+                        width:  100% !important;
+                        /* 600px; */ */
                     }
                </style>
                 <style>
                     .gmap_canvas {
                         overflow: hidden;
                         background: none !important;
-                        height: 500px;
-                        width: 600px;
+                        height: 100% !important;
+                        /* 500px; */
+                        width: 100% !important;
+                        /* 600px; */
                     }
                 </style>
             </div>

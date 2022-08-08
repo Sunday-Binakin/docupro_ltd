@@ -29,32 +29,20 @@
                                 <li class="dropdown">
                                     <a href="#">Service / Solutions</a>
                                     <ul>
-                                        <li><a href="insurance-01.html">Insurance 01</a></li>
-                                        <li><a href="insurance-02.html">Insurance 02</a></li>
-                                        <li><a href="car-insurance.html">Car insurance</a></li>
-                                        <li><a href="life-insurance.html">Life insurance</a></li>
-                                        <li><a href="home-insurance.html">Home insurance</a>
-                                        </li>
-                                        <li><a href="health-insurance.html">Health insurance</a></li>
-                                        <li><a href="business-insurance.html">Business insurance</a></li>
-                                        <li><a href="fire-insurance.html">Fire insurance</a></li>
-                                        <li><a href="marriage-insurance.html">Marriage insurance</a></li>
-                                        <li><a href="travel-insurance.html">Travel insurance</a></li>
+                                        <li><a href="">Document Management System(DMS)</a></li>
+                                        <li><a href="">Health Care Document Management System(HDMS)</a></li>
+                                        <li><a href="">Biometric Identification Solution Supply & Identification</a></li>
+                                        <li><a href="">Enterprise Identify and Access Mangement Solution(EIAMS)</a></li>
+                                        <li><a href="">Document Warehousing & Archival Solutions</a></li>
+                                        <li><a href="">Software Development</a></li>
+                                       
                                     </ul>
                                 </li>
                                 <li class="dropdown">
                                     <a href="{{ route('media') }}">Media Room</a>
                                     
                                 </li>
-                                {{-- <li class="dropdown">
-                                    <a href="#">News</a>
-                                    <ul>
-                                        <li><a href="news.html">News</a></li>
-                                        <li><a href="news-carousel.html">News Carousel</a></li>
-                                        <li><a href="news-sidebar.html">News Sidebar</a></li>
-                                        <li><a href="news-details.html">News Details</a></li>
-                                    </ul>
-                                </li> --}}
+                                
                                 <li>
                                     <a href="{{ route('contact.us') }}">Contact </a>
                                 </li>
