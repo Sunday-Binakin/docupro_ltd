@@ -10,15 +10,15 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="index.html">Home</a></li>
                 <li><span>/</span></li>
-                <li>news sidebar</li>
+                <li>Media Room</li>
             </ul>
-            <h2>News sidebar</h2>
+            <h2>Media Room</h2>
         </div>
     </div>
 </section>
 <!--Page Header End-->
 
-<!--News Sidebar Start-->
+<!--Media Room Start-->
 <section class="news-sidebar">
     <div class="container">
         <div class="row">
@@ -233,5 +233,5 @@
         </div>
     </div>
 </section>
-<!--News Sidebar End-->
+<!--Media Room End-->
 @endsection

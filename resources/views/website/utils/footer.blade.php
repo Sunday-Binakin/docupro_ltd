@@ -6,7 +6,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="footer-widget__column footer-widget__about">
                         <div class="footer-widget__logo">
-                            <a href="index.html"><img src="{{ asset('website/assets/images/resources/footer-logo.png') }}" alt=""></a>
+                            <a href="{{ route('home') }}"><img style="height: 100px" src="{{ asset('website/assets/images/resources/footer-logo.png') }}" alt=""></a>
                         </div>
                         <div class="footer-widget__about-text-box">
                             <p class="footer-widget__about-text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt.</p>
@@ -117,7 +117,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">© All Copyright 2022 by <a href="#">Insur.com</a></p>
+                        <p class="site-footer__bottom-text">© All Copyright 2022 by <a href="#">NeraSol Ghana Limited</a></p>
                     </div>
                 </div>
             </div>

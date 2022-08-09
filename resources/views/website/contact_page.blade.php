@@ -96,7 +96,7 @@
 <!--Contact Page End-->
 
 <!--CTA One Start-->
-<section class="cta-one cta-three">
+{{-- <section class="cta-one cta-three">
     <div class="container">
         <div class="cta-one__content">
             <div class="cta-one__inner">
@@ -123,7 +123,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!--CTA One End-->
 
 <!--Google Map Start-->
@@ -132,16 +132,16 @@
         {{-- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" --}}
         {{-- class="google-map__two" allowfullscreen></iframe> --}}
         <div class="mapouter">
-            <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
+            <div class="gmap_canvas"><iframe style="width: 100%;"  height="500" id="gmap_canvas"
                     src="https://maps.google.com/maps?q=Docupro%20Ltd,%20JRRW+WF4,%20Accra&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                 <style>
                     .mapouter {
                         position: relative;
-                        text-align: right;
+                        /* text-align: right; */
                         height: 100% !important;
                         /* 500px; */
-                        width:  100% !important;
+                        width:  100vw !important;
                         /* 600px; */ */
                     }
                </style>

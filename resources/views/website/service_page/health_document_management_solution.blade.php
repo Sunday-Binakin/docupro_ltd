@@ -10,9 +10,12 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><span>/</span></li>
-                <li>Healthcare Document Management Solutions (HDMS)</li>
+                <li style="Color: #2088cb ">Healthcare Document 
+                    Management Solutions (HDMS)</li>
             </ul>
-            <h2>Healthcare Document Management Solutions (HDMS)</h2>
+            <h2>Healthcare Document <br>
+                Management Solutions <br>
+                (HDMS)</h2>
         </div>
     </div>
 </section>

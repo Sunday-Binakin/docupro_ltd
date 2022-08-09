@@ -10,7 +10,7 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><span>/</span></li>
-                <li>Mission</li>
+                <li style="Color: #2088cb">Mission</li>
             </ul>
             <h2>Mission</h2>
         </div>
@@ -452,7 +452,7 @@
 <!--FAQ One End-->
 
 <!--Tracking Start-->
-<section class="tracking">
+{{-- <section class="tracking">
     <div class="container">
         <div class="tracking__inner">
             <div class="tracking-shape-1 float-bob-y">
@@ -467,20 +467,20 @@
             <div class="tracking-shape-4 float-bob-y">
                 <img src="{{ asset('website/assets/images/shapes/tracking-shape-4.png' ) }}" alt="">
             </div>
-            <div class="tracking__left">
+            {{-- <div class="tracking__left">
                 <div class="tracking__icon">
                     <span class="icon-folder"></span>
                 </div>
-                <div class="tracking__content">
+                {{-- <div class="tracking__content">
                     <p class="tracking__sub-title">Quisque vel ortor</p>
                     <h3 class="tracking__title">Start tracking your claims</h3>
-                </div>
-            </div>
-            <div class="tracking__btn-box">
+                </div> --}}
+            {{-- </div> --}} 
+            {{-- <div class="tracking__btn-box">
                 <a href="" class="thm-btn tracking__btn">Trak Your Claim</a>
-            </div>
+            </div> --}}
         </div>
     </div>
-</section>
+{{-- </section> --}} 
 <!--Tracking End-->
 @endsection

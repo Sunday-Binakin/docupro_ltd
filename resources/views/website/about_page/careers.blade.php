@@ -10,7 +10,7 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="">Home</a></li>
                 <li><span>/</span></li>
-                <li>Careers</li>
+                <li style="Color: #2088cb">Careers</li>
             </ul>
             <h2>Careers</h2>
         </div>

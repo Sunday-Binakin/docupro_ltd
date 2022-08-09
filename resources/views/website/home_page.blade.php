@@ -538,7 +538,7 @@
     <!--Why Choose One End-->
 
     <!--Get Insurance Start-->
-    <section class="get-insurance">
+    {{-- <section class="get-insurance">
         <div class="get-insurance-bg" style="background-image: url({{ asset('website/assets/images/backgrounds/get-insurance-bg.png') }});"></div>
         <div class="container">
             <div class="row">
@@ -735,7 +735,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Get Insurance End-->
 
     <!--Counter One Start-->
@@ -917,13 +917,13 @@
                 </div>
                 <!--Team One Single End-->
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xl-12">
                     <div class="team-one__bottom">
                         <p class="team-one__bottom-text">Contact Our Expert Team Memeber To Take Our <span>Best Policies</span></p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <!--Team One End-->

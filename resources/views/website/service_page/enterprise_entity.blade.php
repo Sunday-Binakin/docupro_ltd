@@ -10,14 +10,15 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><span>/</span></li>
-                <li>Enterprise Identity and Access Management Solution (EIAMS)</li>
+                <li style="Color: #2088cb">Enterprise Identity and Access Management Solution (EIAMS)</li>
             </ul>
-            <h2>Enterprise Identity and Access Management Solution (EIAMS)</h2>
+            <h2>Enterprise Identity And <br>
+                 Access Management Solution (EIAMS)</h2>
         </div>
     </div>
 </section>
 <!--Page Header End-->
-
+{{-- gps tracking & IT engineer --}}
 <!--News Details Start-->
 <section class="news-details">
     <div class="container">

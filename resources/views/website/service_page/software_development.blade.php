@@ -10,7 +10,7 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><span>/</span></li>
-                <li>Software Development</li>
+                <li style="Color: #2088cb">Software Development</li>
             </ul>
             <h2>Software Development</h2>
         </div>

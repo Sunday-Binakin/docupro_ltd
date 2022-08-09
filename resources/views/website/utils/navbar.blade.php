@@ -54,12 +54,15 @@
                         </div>
                         <div class="main-menu__main-menu-box-search-get-quote-btn">
                             <div class="main-menu__main-menu-box-search">
-                                <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a>
+                                <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a>  
+                                {{-- <input type="text" name="serach" placeholder="Search"> --}}
+                                  Search Here
                             </div>
-                            <div class="main-menu__main-menu-box-get-quote-btn-box">
+                            {{-- <div class="main-menu__main-menu-box-get-quote-btn-box">
                                 <a href="contact.html" class="thm-btn main-menu__main-menu-box-get-quote-btn">Get a
                                     Quote</a>
-                            </div>
+                            </div> --}}
+                            
                         </div>
                     </div>
                 </div>

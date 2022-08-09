@@ -10,9 +10,11 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><span>/</span></li>
-                <li>Document Warehousing & Archival Solutions</li>
+                <li style="Color: #2088cb ">Document Warehousing  &
+                     Archival Solutions</li>
             </ul>
-            <h2>Document Warehousing & Archival Solutions</h2>
+            <h2>Document Warehousing &
+                <br> Archival Solutions</h2>
         </div>
     </div>
 </section>

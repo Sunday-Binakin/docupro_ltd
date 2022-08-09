@@ -10169,6 +10169,7 @@ ul {
 .google-map-two {
   position: relative;
   display: block;
+  width: 100vw;
   background-color: var(--insur-extra);
   margin-top: -60px;
 }
