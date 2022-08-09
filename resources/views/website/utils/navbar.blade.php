@@ -13,36 +13,40 @@
                             <ul class="main-menu__list">
                                 <li class="dropdown current megamenu">
                                     <a href="{{ route('home') }}">Home </a>
-                                    
+
                                 </li>
                                 <li class="dropdown">
                                     <a href="{{ route('about') }}">About Us</a>
                                     <ul>
                                         <li><a href="">Message From Head</a></li>
-                                        <li><a href="">Mission</a></li>
+                                        <li><a href="{{ route('mission') }}">Mission</a></li>
                                         <li><a href="">Why Choose Docupro</a></li>
-                                        <li><a href="">Careers</a></li>
-                                        
-                                      
+                                        <li><a href="{{ route('careers') }}">Careers</a></li>
+
+
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">Service / Solutions</a>
+                                    <a href="">Service / Solutions</a>
                                     <ul>
-                                        <li><a href="">Document Management System(DMS)</a></li>
-                                        <li><a href="">Health Care Document Management System(HDMS)</a></li>
-                                        <li><a href="">Biometric Identification Solution Supply & Identification</a></li>
-                                        <li><a href="">Enterprise Identify and Access Mangement Solution(EIAMS)</a></li>
-                                        <li><a href="">Document Warehousing & Archival Solutions</a></li>
-                                        <li><a href="">Software Development</a></li>
-                                       
+                                        <li><a href="{{ route('dms') }}">Document Management System(DMS)</a></li>
+                                        <li><a href="{{ route('hdms') }}">Health Care Document Management
+                                                System(HDMS)</a></li>
+                                        {{-- <li><a href="">Biometric Identification Solution Supply &
+                                                Identification</a></li> --}}
+                                        <li><a href="{{ route('eiams') }}">Enterprise Identify and Access Mangement
+                                                Solution(EIAMS)</a></li>
+                                        <li><a href="{{ route('document.warehousing') }}">Document Warehousing &
+                                                Archival Solutions</a></li>
+                                        <li><a href="{{ route('software.development') }}">Software Development</a></li>
+
                                     </ul>
                                 </li>
                                 <li class="dropdown">
                                     <a href="{{ route('media') }}">Media Room</a>
-                                    
+
                                 </li>
-                                
+
                                 <li>
                                     <a href="{{ route('contact.us') }}">Contact </a>
                                 </li>
@@ -50,12 +54,11 @@
                         </div>
                         <div class="main-menu__main-menu-box-search-get-quote-btn">
                             <div class="main-menu__main-menu-box-search">
-                                <a href="#"
-                                    class="main-menu__search search-toggler icon-magnifying-glass"></a>
+                                <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a>
                             </div>
                             <div class="main-menu__main-menu-box-get-quote-btn-box">
-                                <a href="contact.html"
-                                    class="thm-btn main-menu__main-menu-box-get-quote-btn">Get a Quote</a>
+                                <a href="contact.html" class="thm-btn main-menu__main-menu-box-get-quote-btn">Get a
+                                    Quote</a>
                             </div>
                         </div>
                     </div>
