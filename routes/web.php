@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('admin/home/page')->controller(callExpertController::class)->group(function () {
         Route::get('/call/expert', 'callExpert')->name('call.expert');
         Route::post('/call/experts','addCallExperts')->name('add.call.experts');
+        // Route::get('/call/expert', 'allData')->name('all.data');
     });
 
 

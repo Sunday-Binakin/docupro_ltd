@@ -12,7 +12,8 @@ class callExpertController extends Controller
 
     public function callExpert()
     {
-        return view('admin.Home.call_our_experts');
+        $contacts = CallExperts::latest()->get();
+        return view('admin.Home.call_our_experts', compact('contacts'));
     }
 
     public function addCallExperts(Request $request)
@@ -33,4 +34,10 @@ class callExpertController extends Controller
 
         return redirect()->back()->with('primary', 'contact successfully added');
     }
+
+    // public function allData()
+    // {
+    //     $contacts = CallExperts::latest()->get();
+    //     return view('admin.Home.call_our_experts', compact('contacts'));
+    // }
 }
