@@ -30,11 +30,11 @@
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
-                    <input value="{{ $term }}" type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Search...">
                     <span class="ri-search-line"></span>
                 </div>
             </form>
-            <table class="table-auto w-full mb-6">
+            {{-- <table class="table-auto w-full mb-6">
                 <tbody>
                     @foreach($results as $result)
                     <x-dynamic-component :component="class_basename($result)" :data="$result"
@@ -42,7 +42,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {!! $results->withQueryString()->links() !!}
+            {!! $results->withQueryString()->links() !!} --}}
 
         </div>
 

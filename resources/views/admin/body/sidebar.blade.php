@@ -23,10 +23,12 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bi bi-house-door-fill"></i>
-                        <span>Home Slider Setup</span>
+                        <span>Home Page</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('home.slider') }}">Home Slider</a></li>
+                        <li><a href="{{ route('call.expert') }}">Call Our Experts</a></li>
+                        <li><a href="">Slider</a></li>
+                        <li><a href="">Our Services</a></li>
 
                     </ul>
                 </li>

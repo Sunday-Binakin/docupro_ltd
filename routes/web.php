@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Home\AboutController;
-use App\Http\Controllers\Home\BlogCategoryController;
-use App\Http\Controllers\Home\HomeSliderController;
-use App\Http\Controllers\Home\PortfolioController;
-use App\Http\Controllers\Home\BlogController;
-use App\Http\Controllers\Home\ContactController;
-use App\Http\Controllers\Home\FooterController;
-use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Home\BlogController;
+use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\FooterController;
+use App\Http\Controllers\Home\ContactController;
+use App\Http\Controllers\Home\PortfolioController;
+use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\BlogCategoryController;
+use App\Http\Controllers\HomePage\HomePageController;
+use App\Http\Controllers\HomePage\callExpertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +83,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/home/slider', 'HomeSlider')->name('home.slider');
         Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
     });
+
+
+   //Admin Home Page routes
+    Route::prefix('admin/home/page')->controller(callExpertController::class)->group(function () {
+        Route::get('/call/expert', 'callExpert')->name('call.expert');
+        Route::post('/call/experts','addCallExperts')->name('add.call.experts');
+    });
+
+
 
 
     //About Page All route

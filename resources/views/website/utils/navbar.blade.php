@@ -56,7 +56,7 @@
                             <div class="main-menu__main-menu-box-search">
                                 <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a>  
                                 {{-- <input type="text" name="serach" placeholder="Search"> --}}
-                                  Search Here
+                                  Click Here
                             </div>
                             {{-- <div class="main-menu__main-menu-box-get-quote-btn-box">
                                 <a href="contact.html" class="thm-btn main-menu__main-menu-box-get-quote-btn">Get a

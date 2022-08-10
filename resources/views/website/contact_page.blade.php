@@ -135,16 +135,7 @@
             <div class="gmap_canvas"><iframe style="width: 100%;"  height="500" id="gmap_canvas"
                     src="https://maps.google.com/maps?q=Docupro%20Ltd,%20JRRW+WF4,%20Accra&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                <style>
-                    .mapouter {
-                        position: relative;
-                        /* text-align: right; */
-                        height: 100% !important;
-                        /* 500px; */
-                        width:  100vw !important;
-                        /* 600px; */ */
-                    }
-               </style>
+               
                 <style>
                     .gmap_canvas {
                         overflow: hidden;

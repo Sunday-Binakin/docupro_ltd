@@ -10174,6 +10174,17 @@ ul {
   margin-top: -60px;
 }
 
+
+.mapouter {
+    position: relative;
+    /* text-align: right; */
+    height: 100% !important;
+    /* 500px; */
+    width:  100vw !important;
+    /* 600px; */ 
+}
+
+
 .google-map__two {
   position: relative;
   display: block;

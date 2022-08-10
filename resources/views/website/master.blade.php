@@ -52,6 +52,11 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('website/assets/css/insur.css') }}" />
     <link rel="stylesheet" href="{{ asset('website/assets/css/insur-responsive.css') }}" />
+
+    {{-- toast --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.0/css/toastr.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
 </head>
 
 <body class="custom-cursor">
