@@ -52,6 +52,11 @@
  <!-- Datatable init js -->
  <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
+ <!-- Sweet Alerts js -->
+ <script src="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+ <!-- Sweet alert init js-->
+ <script src="{{ asset('backend/assets/js/pages/sweet-alerts.init.js') }}"></script>
 
 <!-- template js -->
 <script src="{{ asset('website/assets/js/insur.js') }}"></script>

@@ -35,9 +35,15 @@ class callExpertController extends Controller
         return redirect()->back()->with('primary', 'contact successfully added');
     }
 
-    // public function allData()
-    // {
-    //     $contacts = CallExperts::latest()->get();
-    //     return view('admin.Home.call_our_experts', compact('contacts'));
-    // }
+    public function editCallExperts($id)
+    {
+     $edit_call_experts = CallExperts::FindorFail($id);
+        return view('admin.Home.call_our_experts', compact('edit_call_experts'));
+    }
+    public function deleteCallExperts($id)
+    {
+        CallExperts::FindOrFail($id)->delete();
+
+        return redirect()->back()->with('primary', 'Successfully deleted');
+    }
 }
