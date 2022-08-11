@@ -62,14 +62,18 @@
 
 
                             <tbody>
-                                @foreach ($contacts as $key => $contact )
+                                @foreach ($contacs as $key => $contact )
                                 <tr>
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $contact->description }}</td>
                                     <td>{{ $contact->telephone }}</td>
                                     <td>
-                                        <a href="{{ route('edit.call.experts', $contact->id) }}" class="btn btn-primary">Edit</a>
-                                        <a  href="{{ route('delete.call.experts', $contact->id) }}" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('edit.call.experts', $contact->id) }}"
+                                            class="btn btn-primary">Edit</a>
+                                        <a 
+                                            href="{{ route('delete.call.experts', $contact->id) }} "
+                                             class="btn btn-danger">Delete</a>
+
                                     </td>
 
                                 </tr>

@@ -56,6 +56,7 @@
 <body data-topbar="dark">
 
     @include('sweetalert::alert')
+    
 
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
@@ -148,6 +149,26 @@
 
 
     </script>
+{{-- <script>
+    function confirmation(ev) {
+    ev.preventDefault();
+    var urlToRedirect = ev.currentTarget.getAttribute('href');
+    console.log(urlToRedirect);
+    swal({
+    title: "Are you sure you?",
+    text: "You will not be able to revert this!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    })
+    .then((willCancel) => {
+    if (willCancel) {
+    window.location.href = urlToRedirect;
+    }
+    
+    });
+    }
+</script> --}}
     <!--tinymce js-->
     <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script>
 

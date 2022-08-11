@@ -86,11 +86,11 @@ Route::middleware('auth')->group(function () {
 
 
    //Admin Home Page routes
-    Route::prefix('admin/home/page')->controller(callExpertController::class)->group(function () {
-        Route::get('/call/expert', 'callExpert')->name('call.expert');
-        Route::post('/call/experts','addCallExperts')->name('add.call.experts');
-        Route::get('/edit/call/experts/{id}', 'editCallExperts')->name('edit.call.experts');
-        Route::get('/delete/call/experts/{id}', 'deleteCallExperts')->name('delete.call.experts');
+    Route::prefix('admin/call')->controller(callExpertController::class)->group(function () {
+        Route::get('/expert', 'callExpert')->name('call.expert');
+        Route::post('/experts','addCallExperts')->name('add.call.experts');
+        Route::get('/edit/experts/{id}', 'editCallExperts')->name('edit.call.experts');
+        Route::get('/delete/experts/{id}', 'deleteCallExperts')->name('delete.call.experts');
     });
 
 

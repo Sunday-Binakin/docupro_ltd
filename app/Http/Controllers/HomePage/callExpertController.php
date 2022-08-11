@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\HomePage;
 
+use alert;
 use Carbon\Carbon;
 use App\Models\CallExperts;
 use Illuminate\Http\Request;
@@ -12,8 +13,8 @@ class callExpertController extends Controller
 
     public function callExpert()
     {
-        $contacts = CallExperts::latest()->get();
-        return view('admin.Home.call_our_experts', compact('contacts'));
+        $contacs = CallExperts::latest()->get();
+        return view('admin.Home.call_our_experts', compact('contacs'));
     }
 
     public function addCallExperts(Request $request)
@@ -31,18 +32,23 @@ class callExpertController extends Controller
             'telephone'=>$request->telephone,
             'created_at' => Carbon::now(),
         ]);
-
+        alert()->success('Successfully Added')->persistent(true,false);
         return redirect()->back()->with('primary', 'contact successfully added');
     }
 
     public function editCallExperts($id)
     {
-     $edit_call_experts = CallExperts::FindorFail($id);
+     $edit_call_experts = CallExperts::FindOrFail($id);
         return view('admin.Home.call_our_experts', compact('edit_call_experts'));
     }
     public function deleteCallExperts($id)
     {
         CallExperts::FindOrFail($id)->delete();
+        // alert()->success('Successfully Deleted','Click Okay to close')->persistent(true,true);
+        // example:
+// alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.')->showConfirmButton('Confirm', '#3085d6');
+// example:
+alert()->question('Are you sure?','You won\'t be able to revert this!')->showCancelButton('Cancel', '#aaa');
 
         return redirect()->back()->with('primary', 'Successfully deleted');
     }
