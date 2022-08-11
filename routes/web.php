@@ -12,6 +12,7 @@ use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\HomePage\HomePageController;
 use App\Http\Controllers\HomePage\callExpertController;
+use App\Http\Controllers\HomePage\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/experts','addCallExperts')->name('add.call.experts');
         Route::get('/edit/experts/{id}', 'editCallExperts')->name('edit.call.experts');
         Route::get('/delete/experts/{id}', 'deleteCallExperts')->name('delete.call.experts');
+    });
+
+    Route::prefix('slider')->controller(SliderController::class)->group(function () {
+        Route::get('/image','allSliders')->name('add.image');
+        Route::post('/add/image','addSlider')->name('store.image');
     });
 
 

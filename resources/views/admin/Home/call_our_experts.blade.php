@@ -62,19 +62,20 @@
 
 
                             <tbody>
-                                @foreach ($contacs as $key => $contact )
+                                {{-- @foreach ($contacts as $key => $contact ) --}}
+                                @php($i = 1)
+                               
+                                @foreach ($contacts as  $contact )
                                 <tr>
-                                    <td>{{ $key+1 }}</td>
+                                    <td>{{  $loop->iteration }}</td>
                                     <td>{{ $contact->description }}</td>
                                     <td>{{ $contact->telephone }}</td>
                                     <td>
-                                        <a href="{{ route('edit.call.experts', $contact->id) }}"
-                                            class="btn btn-primary">Edit</a>
-                                        <a 
+                                        <a href="{{ route('edit.call.experts', $contact->id) }}" class="btn btn-primary">Edit</a>
+                                        <a onclick="confirmation(event)"
                                             href="{{ route('delete.call.experts', $contact->id) }} "
-                                             class="btn btn-danger">Delete</a>
-
-                                    </td>
+                                            class="btn btn-danger sm" title="Delete Data" id="delete">Delete</a>
+                                        </td>
 
                                 </tr>
 

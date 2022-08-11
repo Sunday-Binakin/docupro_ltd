@@ -149,14 +149,14 @@
 
 
     </script>
-{{-- <script>
+<script>
     function confirmation(ev) {
     ev.preventDefault();
     var urlToRedirect = ev.currentTarget.getAttribute('href');
     console.log(urlToRedirect);
     swal({
     title: "Are you sure you?",
-    text: "You will not be able to revert this!",
+    text: "You will not be able to revert this Action!",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -168,7 +168,7 @@
     
     });
     }
-</script> --}}
+</script>
     <!--tinymce js-->
     <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script>
 

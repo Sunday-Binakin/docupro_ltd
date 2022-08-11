@@ -27,7 +27,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('call.expert') }}">Call Our Experts</a></li>
-                        <li><a href="">Slider</a></li>
+                        <li><a href="{{ route('add.image') }}">Slider</a></li>
                         <li><a href="">Our Services</a></li>
 
                     </ul>
