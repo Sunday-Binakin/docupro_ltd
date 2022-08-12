@@ -11,7 +11,7 @@
                         <p class="card-title-desc" style="font-size: 20px">Add Office Line , together with the
                             description</p>
 
-                        <form method="POST" action="{{ route('add.call.experts') }}">
+                        <form method="POST" action="{{ route('add.call.experts') }}" enctype="multipart/form-data">
                             @csrf
 
 

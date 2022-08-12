@@ -1,4 +1,4 @@
-@extends('admin.admin_master')
+{{-- @extends('admin.admin_master')
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style type="text/css">
@@ -95,19 +95,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function(e){
-    $('#image').change(function(){
-        let reader = new FileReader();
-        reader.onload = function(e){
-            $('#showImage').attr('src',e.target.result);
-        }
-        // reader.readAsDataURl(e.target.files['0']);
-        reader.readAsDataURL(this.files[0]);
-    });
 
 
-});
-</script>
-
-@endsection
+@endsection --}}

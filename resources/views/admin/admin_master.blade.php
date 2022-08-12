@@ -169,6 +169,20 @@
     });
     }
 </script>
+<script type="text/javascript">
+    $(document).ready(function(e){
+    $('#image').change(function(){
+        let reader = new FileReader();
+        reader.onload = function(e){
+            $('#showImage').attr('src',e.target.result);
+        }
+        // reader.readAsDataURl(e.target.files['0']);
+        reader.readAsDataURL(this.files[0]);
+    });
+
+
+});
+</script>
     <!--tinymce js-->
     <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script>
 
