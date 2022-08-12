@@ -103,6 +103,7 @@ Route::middleware('auth')->group(function () {
     //homepage service
     Route::prefix('service')->controller(ServiceController::class)->group(function () {
         Route::get('/all', 'allServices')->name('all.services');
+        Route::post('/add', 'addService')->name('add.services');
     });
 
 

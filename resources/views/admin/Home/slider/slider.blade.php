@@ -7,7 +7,9 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">Call Hot Line</h4>
+                        {{-- <h4 class="card-title">Call Hot Line</h4> --}}
+                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">Slider</h4><br>
+
                         <p class="card-title-desc" style="font-size: 20px">Add Office Line , together with the
                             description</p>
 
