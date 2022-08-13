@@ -81,10 +81,10 @@ Route::middleware('auth')->group(function () {
     });
 
     //Home Slider All Route
-    Route::controller(HomeSliderController::class)->group(function () {
-        Route::get('/home/slider', 'HomeSlider')->name('home.slider');
-        Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
-    });
+    // Route::controller(HomeSliderController::class)->group(function () {
+    //     Route::get('/home/slider', 'HomeSlider')->name('home.slider');
+    //     Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
+    // });
 
 
     //Admin Home Page routes
@@ -103,6 +103,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/add/image', 'storeSlider')->name('store.image');
         Route::get('/delete/{id}','deleteSlider')->name('delete.slider');
         Route::get('/edit/{id}','editSlider')->name('edit.slider');
+        Route::post('/update','updateSlider')->name('update.slider');
 
     });
 

@@ -67,7 +67,8 @@ class callExpertController extends Controller
             'telephone' => $request->telephone,
             'created_at' => Carbon::now(),
         ]);
-        alert()->success('Successfully Updated')->persistent(true, false);
+        // alert()->success('Successfully Updated')->persistent(true, false);
+        toast('Updated Successfully', 'success', 'top-right')->hideCloseButton();
         // toast('Added Successfully','success','top-right')->hideCloseButton();
         return redirect()->route('all.call.experts');
         // ->route->back()->with('primary', 'contact successfully added');

@@ -26,15 +26,15 @@ class SliderController extends Controller
 
     public function storeSlider(Request $request)
     {
-        
+
         $image = $request->file('image_slider');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
 
-        Image::make($image)->resize(430, 327)->save('uploads/image_slider/' . $name_gen);
-        $save_url = 'uploads/image_slider/' . $name_gen;
+        Image::make($image)->resize(430, 327)->save('uploads/image_sliders/' . $name_gen);
+        $save_url = 'uploads/image_sliders/' . $name_gen;
 
         if ($image !== null) {
-            echo $image->getClientOriginalExtension();  
+            echo $image->getClientOriginalExtension();
         }
         //validating data
         $request->validate([
@@ -62,5 +62,42 @@ class SliderController extends Controller
 
         toast('Deleted Successfully', 'success', 'top-right')->hideCloseButton();
         return redirect()->route('all.sliders');
+    }
+
+    public function editSlider($id)
+    {
+        $edit_slider = Slider::FindOrFail($id);
+        return view('admin.Home.slider.edit_slider', compact('edit_slider'));
+    }
+
+    public function updateSlider(Request $request)
+    {
+        $slider_id = $request->id;
+        if ($request->file('image_slider')) {
+            $image = $request->file('slider_slider');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+
+            Image::make($image)->resize(423, 327)->save('uploads/image_sliders/' . $name_gen);
+            $save_url = 'uploads/image_slider/' . $name_gen;
+
+            Slider::FindOrFail($slider_id)->update([
+
+                'title' => $request->title,
+                'summary' => $request->summary,
+                'image_slider' => $save_url,
+            ]);
+            toast('Service Successfully with Slider Image', 'success', 'top-right')->hideCloseButton();
+            return redirect()->route('all.sliders');
+        } else {
+            Slider::FindOrFail($slider_id)->update([
+
+                'title' => $request->title,
+                'summary' => $request->summary,
+
+            ]);
+            toast('Service Successfully Without Slider', 'success', 'top-right')->hideCloseButton();
+            return redirect()->route('all.sliders');
+        }
+        //end of method
     }
 }
