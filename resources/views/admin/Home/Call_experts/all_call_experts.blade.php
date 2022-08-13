@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <br>
                         <div>
-                            <a href="{{   route('store.call.experts') }}" style="width: 120px;float: right;"
+                            <a href="{{route('add.call.experts') }}" style="width: 120px;float: right;"
                                 class="btn btn-primary btn-rounded" type="submit">Add Contact</a>
                         </div>
                         <br><br>
@@ -36,16 +36,18 @@
                                     <td>{{ $contact->telephone }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" style="width: 120px" class="btn btn-primary dropdown-toggle ri-settings-2-line ri-1.9x"
+                                            <button type="button" style="width: 120px"
+                                                class="btn btn-primary dropdown-toggle ri-settings-2-line ri-1.9x"
                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                     class="mdi mdi-chevron-down"></i></button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('edit.slider', $contact->id) }}">Edit</a>
+                                                    href="{{ route('edit.call.experts', $contact->id) }}">Edit</a>
 
                                                 <a onclick="confirmation(event)"
-                                                    href="{{ route('delete.slider', $contact->id) }} "
-                                                    class="btn btn-danger dropdown-item" title="Delete Data" id="delete">Delete</a>
+                                                    href="{{ route('delete.call.experts', $contact->id) }} "
+                                                    class="btn btn-danger dropdown-item" title="Delete Data"
+                                                    id="delete">Delete</a>
                                             </div>
                                     </td>
                                 </tr>

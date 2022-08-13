@@ -12,16 +12,15 @@
                             Add The Service you offer
                         </p>
 
-                        <form method="POST" action="{{ route('store.service') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.service') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <input type="hidden" name="id" value="">
-
+                            <input type="hidden" name="id" value="{{ $edit_service->id }}">
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="service_title" placeholder="service"
-                                        id="service_title">
+                                        id="service_title" value="{{ $edit_service->service_title }}">
                                     <br>
                                     @error('service_title')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -34,14 +33,14 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Summary</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="service_summary" placeholder="Summary"
-                                        id="service_summary">
+                                        id="service_summary" value="{{ $edit_service->service_summary }}">
                                     <br>
                                     @error('service_summary')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
-                            
+
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Service Image </label>
                                 <div class="col-sm-10">
@@ -55,20 +54,21 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
                                     <img id="showImage" class="rounded avatar-lg"
-                                        src="{{ url('uploads/no_image.jpg') }}" alt="Card image cap">
+                                        src="{{ asset($edit_service->service_image) }}" alt="Card image cap">
                                 </div>
                                 @error('image_slider')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
+                            <br>
                             <br>
                             <div>
-                                <button class="btn btn-primary btn-rounded" style="width: 120px" type="submit">Save Service</button>
+                                <button class="btn btn-primary btn-rounded" style="width: 150px" type="submit">Update
+                                    Service</button>
                             </div>
                         </form>
                         <br>
-                        
+
                     </div>
                 </div>
             </div>

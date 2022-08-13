@@ -47,10 +47,10 @@
                                                     class="mdi mdi-chevron-down"></i></button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('edit.slider', $service->id) }}">Edit</a>
+                                                    href="{{ route('edit.service', $service->id) }}">Edit</a>
 
                                                 <a onclick="confirmation(event)"
-                                                    href="{{ route('delete.slider', $service->id) }} "
+                                                    href="{{ route('delete.service', $service->id) }} "
                                                     class="dropdown-item" title="Delete Data" id="delete">Delete</a>
                                             </div>
                                     </td>

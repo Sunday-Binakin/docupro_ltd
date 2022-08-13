@@ -15,13 +15,14 @@
                             description</p>
                         <br>
 
-                        <form method="POST" action="{{ route('store.call.experts') }}">
+                        <form method="POST" action="{{ route('update.call.experts') }}">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $edit_call_experts->id }}">
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" name="description"
-                                        placeholder="Call Our Experts" id="example-text-input">
+                                        placeholder="Call Our Experts" id="example-text-input" value="{{ $edit_call_experts->description }}">
                                     <br>
                                     @error('description')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -34,7 +35,7 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Telephone</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="tel" name="telephone"
-                                        placeholder="+233 (20)-000-0000" id="example-text-input">
+                                        placeholder="+233 (20)-000-0000" id="example-text-input" value="{{ $edit_call_experts->telephone }}">
                                     <br>
                                     @error('telephone')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -44,7 +45,7 @@
 
                             <br>
                             <div>
-                                <button class="btn btn-primary btn-rounded" style="width: 120px" type="submit">Save
+                                <button class="btn btn-primary btn-rounded" style="width: 150px" type="submit">Update
                                     Contact</button>
                             </div>
                         </form>

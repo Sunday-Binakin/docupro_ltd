@@ -89,11 +89,12 @@ Route::middleware('auth')->group(function () {
 
     //Admin Home Page routes
     Route::prefix('admin/call')->controller(callExpertController::class)->group(function () {
-        Route::get('/expert', 'callExpert')->name('call.expert');
+        Route::get('/expert/all', 'callExpert')->name('all.call.experts');
         Route::get('/experts', 'addCallExperts')->name('add.call.experts');
         Route::post('/experts', 'storeCallExperts')->name('store.call.experts');
         Route::get('/edit/experts/{id}', 'editCallExperts')->name('edit.call.experts');
         Route::get('/delete/experts/{id}', 'deleteCallExperts')->name('delete.call.experts');
+        Route::post('/experts/update/', 'updateCallExperts')->name('update.call.experts');
     });
 //home page slider
     Route::prefix('slider')->controller(SliderController::class)->group(function () {
@@ -110,6 +111,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/all', 'allServices')->name('all.services');
         Route::get('/add', 'addService')->name('add.service');
         Route::post('/store', 'storeService')->name('store.service');
+        Route::get('/delete/{id}', 'deleteService')->name('delete.service');
+        Route::get('/edit/{id}', 'editService')->name('edit.service');
+        Route::post('/update', 'updateService')->name('update.service');
     });
 
 

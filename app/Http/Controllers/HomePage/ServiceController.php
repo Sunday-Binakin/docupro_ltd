@@ -19,41 +19,87 @@ class ServiceController extends Controller
     }
     public function addService()
     {
-       
+
         return view('admin.Home.services.add_service');
     }
     public function storeService(Request $request)
     {
-        if ($image = $request->file('service_image')) 
-       // {
+        if ($image = $request->file('service_image'))
+            // 
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
 
-            Image::make($image)->resize(430, 327)->save('uploads/service_images/' . $name_gen);
+        Image::make($image)->resize(430, 327)->save('uploads/service_images/' . $name_gen);
+        $save_url = 'uploads/service_images/' . $name_gen;
+
+        $request->validate([
+            'service_title' => 'required',
+            'service_summary' => 'required',
+            'service_image' => 'required'
+        ], [
+            'service_title.required' => "A title is required for the Services you offer",
+            'service_summary.required' => "Please summarize your service",
+            'service_image.required' => "Please include an image"
+        ]);
+
+        Services::insert([
+
+            'service_title' => $request->service_title,
+
+            'service_summary' => $request->service_summary,
+            'service_image' => $save_url,
+            'created_at' => Carbon::now(),
+
+        ]);
+        toast('Service Added Successfully!', 'success');
+
+
+        return redirect()->route('all.services');
+    }
+
+    public function deleteService($id)
+    {
+        Services::FindOrFail($id)->delete();
+        toast('Service Deleted ', 'success', 'top-right')->hideCloseButton();
+
+        return redirect()->route('all.services');
+    }
+
+    public function editService($id)
+    {
+        $edit_service = Services::FindOrFail($id);
+        return view('admin.Home.services.edit_service', compact('edit_service'));
+    }
+    public function updateService(Request $request)
+    {
+        $service_id = $request->id;
+        if ($request->file('service_image')) {
+            $image = $request->file('service_image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+
+            Image::make($image)->resize(423, 327)->save('uploads/service_images/' . $name_gen);
             $save_url = 'uploads/service_images/' . $name_gen;
 
-            $request->validate([
-                'service_title' => 'required',
-                'service_summary' => 'required',
-                'service_image' => 'required'
-            ], [
-                'service_title.required' => "A title is required for the Services you offer",
-                'service_summary.required' => "Please summarize your service",
-                'service_image.required' => "Please include an image"
-            ]);
-
-            Services::insert([
+            Services::FindOrFail($service_id)->update([
 
                 'service_title' => $request->service_title,
-
                 'service_summary' => $request->service_summary,
                 'service_image' => $save_url,
-                'created_at' => Carbon::now(),
+            ]);
+            toast('Service Successfully with Image', 'success', 'top-right')->hideCloseButton();
+            return redirect()->route('all.services');
+            // ->with('info', 'Blog Updated Successfully with Image');
+        } else {
+            Services::FindOrFail($service_id)->update([
+
+                'service_title' => $request->service_title,
+                'service_summary' => $request->service_summary,
 
             ]);
-            toast('Service Added Successfully!', 'success');
-
-
+            toast('Service Successfully Without Service Image', 'success', 'top-right')->hideCloseButton();
             return redirect()->route('all.services');
-            
+            // ->with('info', 'Blog Updated Successfully without Blog Image');
+        }
+        //end of method
+
     }
 }
