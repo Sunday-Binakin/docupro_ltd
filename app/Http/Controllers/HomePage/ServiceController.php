@@ -15,9 +15,14 @@ class ServiceController extends Controller
     public function allServices()
     {
         $all_services = Services::latest()->get();
-        return view('admin.Home.services.service', compact('all_services'));
+        return view('admin.Home.services.all_service', compact('all_services'));
     }
-    public function addService(Request $request)
+    public function addService()
+    {
+       
+        return view('admin.Home.services.add_service');
+    }
+    public function storeService(Request $request)
     {
         if ($image = $request->file('service_image')) 
        // {

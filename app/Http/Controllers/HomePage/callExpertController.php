@@ -14,10 +14,14 @@ class callExpertController extends Controller
     public function callExpert()
     {
         $contacts = CallExperts::latest()->get();
-        return view('admin.Home.call_our_experts', compact('contacts'));
+        return view('admin.Home.Call_experts.all_call_experts', compact('contacts'));
     }
 
-    public function addCallExperts(Request $request)
+    public function addCallExperts(){
+        return view('admin.Home.Call_experts.add_call_experts');
+    }
+
+    public function storeCallExperts(Request $request)
     {
         //validating data
         $request->validate([

@@ -40,11 +40,11 @@ class SliderController extends Controller
         $request->validate([
             'title' => 'required|max:30',
             'summary' => 'required',
-            'image_slider' => 'required'
+            // 'image_slider' => 'required'
         ], [
             'title.required' => 'Add a Title ',
             'summary.required' => 'Add Summary',
-            'image_slider.required' => 'Add an Image'
+            // 'image_slider.required' => 'Add an Image'
         ]);
         Slider::insert([
             'title' => $request->title,

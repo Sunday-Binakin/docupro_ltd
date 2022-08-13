@@ -90,7 +90,8 @@ Route::middleware('auth')->group(function () {
     //Admin Home Page routes
     Route::prefix('admin/call')->controller(callExpertController::class)->group(function () {
         Route::get('/expert', 'callExpert')->name('call.expert');
-        Route::post('/experts', 'addCallExperts')->name('add.call.experts');
+        Route::get('/experts', 'addCallExperts')->name('add.call.experts');
+        Route::post('/experts', 'storeCallExperts')->name('store.call.experts');
         Route::get('/edit/experts/{id}', 'editCallExperts')->name('edit.call.experts');
         Route::get('/delete/experts/{id}', 'deleteCallExperts')->name('delete.call.experts');
     });
@@ -107,7 +108,8 @@ Route::middleware('auth')->group(function () {
     //homepage service
     Route::prefix('service')->controller(ServiceController::class)->group(function () {
         Route::get('/all', 'allServices')->name('all.services');
-        Route::post('/add', 'addService')->name('add.services');
+        Route::get('/add', 'addService')->name('add.service');
+        Route::post('/store', 'storeService')->name('store.service');
     });
 
 

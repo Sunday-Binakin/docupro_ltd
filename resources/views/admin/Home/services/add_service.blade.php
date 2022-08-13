@@ -12,7 +12,7 @@
                             Add The Service you offer
                         </p>
 
-                        <form method="POST" action="{{ route('add.services') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('store.service') }}" enctype="multipart/form-data">
                             @csrf
 
 
@@ -42,7 +42,7 @@
                             </div>
                             
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image </label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Service Image </label>
                                 <div class="col-sm-10">
                                     <input class="form-control" id="image" name="service_image" type="file">
                                     @error('service_image')
@@ -63,48 +63,11 @@
 
                             <br>
                             <div>
-                                <button class="btn btn-primary" type="submit">Save Slider Info</button>
+                                <button class="btn btn-primary btn-rounded" style="width: 120px" type="submit">Save Service</button>
                             </div>
                         </form>
                         <br>
-                        <hr>
-                        <p style="font-size: 20px"> The Table below shows the list of availble contacts</p>
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap"
-                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                                <tr>
-                                    <th>Sn</th>
-                                    <th>Title</th>
-                                    <th>Summary</th>
-                                    <th>Image</th>
-                                    <th>Action</th>
-
-                                </tr>
-                            </thead>
-
-
-                            <tbody>
-                                @foreach ($all_services as $key => $service )
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td>{{ $service->service_title }}</td>
-                                    <td>{{ $service->service_summary }}</td>
-                                    <td>
-                                        <img src="{{ asset($service->service_image) }}" width="70px" width="90px">
-                                    </td>
-                                    <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a onclick="confirmation(event)" href=" " class="btn btn-danger sm"
-                                            title="Delete Data" id="delete">Delete</a>
-                                    </td>
-
-                                </tr>
-                                @endforeach
-
-
-
-                            </tbody>
-                        </table>
+                        
                     </div>
                 </div>
             </div>
