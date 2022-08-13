@@ -96,8 +96,12 @@ Route::middleware('auth')->group(function () {
     });
 //home page slider
     Route::prefix('slider')->controller(SliderController::class)->group(function () {
-        Route::get('/image', 'allSliders')->name('add.image');
-        Route::post('/add/image', 'addSlider')->name('store.image');
+        Route::get('/all', 'allSliders')->name('all.sliders');
+        Route::get('/add', 'addSliders')->name('add.slider');
+        Route::post('/add/image', 'storeSlider')->name('store.image');
+        Route::get('/delete/{id}','deleteSlider')->name('delete.slider');
+        Route::get('/edit/{id}','editSlider')->name('edit.slider');
+
     });
 
     //homepage service

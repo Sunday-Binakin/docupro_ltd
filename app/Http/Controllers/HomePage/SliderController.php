@@ -5,50 +5,48 @@ namespace App\Http\Controllers\HomePage;
 use Carbon\Carbon;
 use App\Models\Slider;
 use Illuminate\Http\Request;
-use Intervention\Image\Image;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SliderController extends Controller
 {
-    public function allSliders()
+    public function allsliders()
     {
-      $all_sliders = Slider::all();
-      return view('admin.Home.slider.slider', compact('all_sliders'));
+        $all_sliders = Slider::latest()->get();
+        return view('admin.Home.slider.all_sliders', compact('all_sliders'));
     }
-    public function addSlider(Request $request)
+
+    public function addsliders()
     {
-        // $slider_id = $request->id;
+        
+        return view('admin.Home.slider.add_slider');
+    }
 
-        if ($request->file('image_slider')) {
-            $image = $request->file('image_slider');
-            $name_generation = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+    public function storeSlider(Request $request)
+    {
+        //validating data
+        $request->validate([
+            'title' => 'required|max:30',
+            'summary' => 'required'
+        ], [
+            'title.required' => 'Add a Title ',
+            'summary.required' => 'Add Summary'
+        ]);
+        Slider::insert([
+            'title' => $request->title,
+            'summary' => $request->summary,
+            'created_at' => Carbon::now(),
+        ]);
+        alert()->success('Successfully Added')->persistent(true, false);
+        return redirect()->route('all.sliders');
+    }
 
-            Image::make($image)->resize(636, 852)->save('uploads/slider/' . $name_generation);
+    public function deleteSlider($id)
+    {
+        Slider::FindOrFail($id)->delete();
 
-            $save_url = 'uploads/slider/' . $name_generation;
-
-            $request->validate([
-                'image_slider' => 'required',
-                // 'summary' => 'required',
-
-            ], [
-                'image_slider.required' => ' slider is required',
-                //'summary.required' => 'summary is required',
-                //'image_1.required' => 'At least 1 image is required',
-            ]);
-
-            Slider::insert([
-                'title' => $request->title,
-                'summary' => $request->summary,
-                'image_slider' =>$save_url,
-                'created_at' => Carbon::now(),
-
-
-            ]);
-            // example:
-            toast('Slider Added Successfully', 'success', 'top-right')->showCloseButton();
-
-            return redirect()->back();
-        }
+        toast('Deleted Successfully', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('add.image');
     }
 }
