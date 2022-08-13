@@ -40,6 +40,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image </label>
                                 <div class="col-sm-10">
