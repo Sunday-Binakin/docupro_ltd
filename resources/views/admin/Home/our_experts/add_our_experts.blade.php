@@ -14,7 +14,7 @@
                         {{-- <p class="card-title-desc">Add Images to your home page</p> --}}
                         <br>
 
-                        <form method="POST" action="{{ route('store.our.experts') }}" >
+                        <form method="POST" action="{{ route('store.our.experts') }}"  enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">

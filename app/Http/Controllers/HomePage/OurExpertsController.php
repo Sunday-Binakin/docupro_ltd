@@ -31,23 +31,23 @@ class OurExpertsController extends Controller
             'experts_image.required' => 'Please enter the right format'
         ]);
 
-        // if ($request->hasFile('experts_image')) {
-        //     $file = $request->file('experts_image');
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time() . '.' . $extension;
-        //     $file->move('uploads/experts_image/', $filename);
-        //     Image::make(public_path('uploads/experts_image/' . $filename))->fit(400, 400)->save();
-        // } else {
-        //     $filename = 'default.png';
-        // }
+        if ($request->hasFile('experts_image')) {
+            $file = $request->file('experts_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/experts_image/', $filename);
+            Image::make(public_path('uploads/experts_image/' . $filename))->fit(400, 400)->save();
+        } else {
+            $filename = 'default.png';
+        }
 
 
-        $image = $request->file('experts_image');
-        // 
-        $name_gen = time() . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+        // $image = $request->file('experts_image');
+        // // 
+        // $name_gen = time() . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
 
-        Image::make($image)->resize(430, 327)->save('uploads/experts_images/' . $name_gen);
-        $save_url = 'uploads/experts_images/' . $name_gen;
+        // Image::make($image)->resize(430, 327)->save('uploads/experts_images/' . $name_gen);
+        // $save_url = 'uploads/experts_images/' . $name_gen;
 
         // if ($image !== null) {
         //     echo $image->getClientOriginalExtension();
@@ -56,24 +56,52 @@ class OurExpertsController extends Controller
         OurExperts::insert([
             'name' => $request->name,
             'portfolio' => $request->portfolio,
-            // 'experts_image' => 'uploads/experts_image/' . $filename,
-            'experts_image' => $save_url,
+            'experts_image' => 'uploads/experts_image/' . $filename,
+            // 'experts_image' => $save_url,
             'created_at' => Carbon::now(),
         ]);
         alert()->success('Successfully Added')->persistent(true, false);
 
         return redirect()->route('all.our.experts');
     }
-    public function editOurExperts()
+    public function editOurExperts($id)
     {
-        # code...
+        $edit_our_experts = OurExperts::FindOrFail($id);
+
+        return view('admin.Home.our_experts.edit_our_experts', compact('edit_our_experts'));
     }
-    public function deleteOurExperts()
+    public function deleteOurExperts($id)
     {
-        # code...
+        OurExperts::FindOrFail($id)->delete();
+        toast('Deleted! ', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('all.our.experts');
     }
-    public function updateOurExperts()
+    public function updateOurExperts( Request $request)
     {
-        # code...
+        $experts_id = $request->id;
+
+        if ($request->hasFile('experts_image')) {
+            $file = $request->file('experts_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/experts_image/', $filename);
+            Image::make(public_path('uploads/experts_image/' . $filename))->fit(400, 400)->save();
+
+            OurExperts::FindOrFail($experts_id)->update([
+                'name' => $request->name,
+                'portfolio' => $request->portfolio,
+                'experts_image' => 'uploads/experts_image/' . $filename,
+            ]);
+            toast('Successfully Updated with Image ', 'success', 'top-right')->hideCloseButton();
+        } else {
+
+            OurExperts::FindOrFail($experts_id)->update([
+                'name' => $request->name,
+                'portfolio' => $request->portfolio
+            ]);
+            toast('Successfully Updated without  Image ', 'success', 'top-right')->hideCloseButton();
+        }
+
+        return redirect()->route('all.call.experts');
     }
 }
