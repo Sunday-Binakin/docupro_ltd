@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\HomePage\ChoseUsController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\FooterController;
@@ -11,10 +10,12 @@ use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\HomePage\SliderController;
+use App\Http\Controllers\HomePage\ChoseUsController;
 use App\Http\Controllers\HomePage\ServiceController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\HomePage\HomePageController;
 use App\Http\Controllers\HomePage\callExpertController;
+use App\Http\Controllers\HomePage\OurExpertsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +126,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', 'updateWhyChoseUs')->name('update.why.chose.us');
         Route::get('/edit/{id}', 'editWhyChoseUs')->name('edit.why.chose.us');
         Route::get('/delete/{id}', 'deleteWhyChoseUs')->name('delete.why.chose.us');
+    });
+
+
+    Route::prefix('our/experts')->controller(OurExpertsController::class)->group(function () {
+        Route::get('/all', 'allOurExperts')->name('all.our.experts');
+        Route::get('/add', 'addOurExperts')->name('add.our.experts');
+        Route::post('/store', 'storeOurExperts')->name('store.our.experts');
+        Route::post('/update', 'updateOurExperts')->name('update.our.experts');
+        Route::get('/edit/{id}', 'editOurExperts')->name('edit.our.experts');
+        Route::get('/delete/{id}', 'deleteOurExperts')->name('delete.our.experts');
     });
 });
 Route::get('/dashboard', function () {

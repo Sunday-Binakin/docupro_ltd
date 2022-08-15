@@ -24,12 +24,16 @@ class ServiceController extends Controller
     }
     public function storeService(Request $request)
     {
-        if ($image = $request->file('service_image'))
-            // 
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+        $image = $request->file('service_image');
+        // 
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
 
         Image::make($image)->resize(430, 327)->save('uploads/service_images/' . $name_gen);
         $save_url = 'uploads/service_images/' . $name_gen;
+
+        if ($image !== null) {
+            echo $image->getClientOriginalExtension();
+        }
 
         $request->validate([
             'service_title' => 'required',
