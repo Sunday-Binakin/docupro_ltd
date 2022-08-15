@@ -26,16 +26,15 @@
                                     <th>Summary</th>
                                     <th>Action</th>
                                 </tr>
-                            </thead
-                            >
+                            </thead>
                             <tbody>
                                 @foreach ($all as $key => $chose )
                                 <tr>
                                     <td>{{ $key+1}}</td>
-                                    <td>{{ $chose->title }}</td>
-                                    <td>{!! Str::limit($chose->short_summary, 20) !!}</td>
-                                    <td>{!! Str::lower($chose->summary !!}</td>
-                                    
+                                    <td>{{Str::limit($chose->title, 40) }}</td>
+                                    <td>{!! Str::limit($chose->short_summary, 40) !!}</td>
+                                    <td>{!! Str::limit($chose->summary,40) !!}</td>
+
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" style="width: 120px"

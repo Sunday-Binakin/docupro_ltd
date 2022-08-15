@@ -39,13 +39,32 @@ class ChoseUsController extends Controller
         // toast('Successfully Added !', 'success');
         return  redirect()->route('all.why.chose.us');
     }
-
-    public function editWhyChoseUs()
+    public function updateWhyChoseUs(Request $request)
     {
-        # code...
+        $update_id = $request->id;
+        ChoseUs::FindOrFail($update_id)->update([
+            'title' => $request->title,
+            'short_summary' => $request->short_summary,
+            'summary' => $request->summary
+        ]);
+        toast('Updated Successfully', 'success', 'top-right')->hideCloseButton();
+       // toast('Updated Successfully', 'success', 'top-right')->hideCloseButton();
+       return  redirect()->route('all.why.chose.us');
+       
+    }
+    public function editWhyChoseUs($id)
+
+    {
+        $edit_chose_us = ChoseUs::FindOrFail($id);
+        return view('admin.Home.why_chose_us.edit_why_chose_us', compact('edit_chose_us'));
     }
 
-    public function deleteWhyChoseUs()
+    public function deleteWhyChoseUs($id)
     {
+        ChoseUs::FindOrFail($id)->delete();
+        // toast('Deleted !', 'success');
+        toast('Deleted Successfully', 'success', 'top-right')->hideCloseButton();
+
+        return redirect()->route('all.why.chose.us');
     }
 }
