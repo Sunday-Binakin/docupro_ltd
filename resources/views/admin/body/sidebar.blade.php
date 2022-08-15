@@ -28,14 +28,16 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('all.call.experts') }}">Call Our Experts</a></li>
                         <li><a href="{{ route('all.sliders') }}">Slider</a></li>
-                        <li><a href="{{ route('all.services') }}">Services</a></li> 
+                        <li><a href="{{ route('all.services') }}">Services</a></li>
+                        <li><a href="{{ route('all.why.chose.us') }}">Why Chose Us</a></li>
+                        <li><a>Our Experts</a></li>
 
                     </ul>
                 </li>
 
-              
 
-          
+
+
 
 
             </ul>

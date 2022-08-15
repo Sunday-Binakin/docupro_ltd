@@ -50,8 +50,8 @@ class ServiceController extends Controller
             'created_at' => Carbon::now(),
 
         ]);
-        toast('Service Added Successfully!', 'success');
-
+        // toast('Service Added Successfully!', 'success');
+        alert()->success('Successfully Added')->persistent(true, false);
 
         return redirect()->route('all.services');
     }

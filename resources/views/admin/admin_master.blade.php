@@ -49,7 +49,8 @@
         integrity="sha512-8EbzTdONoihxrKJqQUk1W6Z++PXPHexYlmSfizYg7eUqz8NgScujWLqqSdni6SRxx8wS4Z9CQu0eakmPLtq0HA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
+{{-- eck texteditor --}}
+{{-- <script src="//cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script> --}}
 
 </head>
 
@@ -183,8 +184,25 @@
 
 });
 </script>
+{{-- ck editor --}}
+<script src="{{ asset('backend/ckeditor/ckeditor.js') }}"></script>
+<script>
+    // StandardEditor
+            // .create( document.querySelector( '#editor' ) )
+            // .then( editor => {
+            //         console.log( editor );
+            // } )
+            // .catch( error => {
+            //         console.error( error );
+            // } );
+            CKEDITOR.replace( 'short_summary' );
+</script>
+<script>
+     CKEDITOR.replace( 'summary' );
+</script>
+
     <!--tinymce js-->
-    <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}
 
     <!-- init js -->
     <script src="{{ asset('backend/assets/js/pages/form-editor.init.js') }}"></script>

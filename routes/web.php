@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\HomePage\ChoseUsController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\FooterController;
@@ -117,6 +118,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', 'updateService')->name('update.service');
     });
 
+    Route::prefix('why/chose/us')->controller(ChoseUsController::class)->group(function () {
+        Route::get('/all', 'allWhyChoseUs')->name('all.why.chose.us');
+        Route::get('/add', 'addWhyChoseUs')->name('add.why.chose.us');
+        Route::post('/store', 'storeWhyChoseUs')->name('store.why.chose.us');
+        Route::get('/edit/{id}', 'editWhyChoseUs')->name('edit.why.chose.us');
+        Route::get('/delete/{id}', 'deleteWhyChoseUs')->name('delete.why.chose.us');
+    });
 
     //About Page All route
     // Route::controller(AboutController::class)->group(function () {
