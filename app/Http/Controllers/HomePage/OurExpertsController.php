@@ -102,6 +102,6 @@ class OurExpertsController extends Controller
             toast('Successfully Updated without  Image ', 'success', 'top-right')->hideCloseButton();
         }
 
-        return redirect()->route('all.call.experts');
+        return redirect()->route('all.our.experts');
     }
 }

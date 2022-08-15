@@ -27,6 +27,17 @@ class SliderController extends Controller
     public function storeSlider(Request $request)
     {
 
+        //validating data
+        $request->validate([
+            'title' => 'required|max:30',
+            'summary' => 'required',
+            'image_slider' => 'required'
+        ], [
+            'title.required' => 'Add a Title ',
+            'summary.required' => 'Add Summary',
+            'image_slider.required' => 'Add an Image'
+        ]);
+        
         $image = $request->file('image_slider');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
 
@@ -35,17 +46,7 @@ class SliderController extends Controller
 
         if ($image !== null) {
             echo $image->getClientOriginalExtension();
-        }
-        //validating data
-        $request->validate([
-            'title' => 'required|max:30',
-            'summary' => 'required',
-            // 'image_slider' => 'required'
-        ], [
-            'title.required' => 'Add a Title ',
-            'summary.required' => 'Add Summary',
-            // 'image_slider.required' => 'Add an Image'
-        ]);
+        } 
         Slider::insert([
             'title' => $request->title,
             'summary' => $request->summary,

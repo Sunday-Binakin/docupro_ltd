@@ -46,6 +46,7 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Service Image </label>
                                 <div class="col-sm-10">
                                     <input class="form-control" id="image" name="service_image" type="file">
+                                    <br>
                                     @error('service_image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -57,6 +58,7 @@
                                     <img id="showImage" class="rounded avatar-lg"
                                         src="{{ url('uploads/no_image.jpg') }}" alt="Card image cap">
                                 </div>
+                                <br>
                                 @error('image_slider')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
