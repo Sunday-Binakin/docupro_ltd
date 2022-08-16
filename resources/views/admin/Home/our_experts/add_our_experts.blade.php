@@ -14,7 +14,7 @@
                         {{-- <p class="card-title-desc">Add Images to your home page</p> --}}
                         <br>
 
-                        <form method="POST" action="{{ route('store.our.experts') }}"  enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('store.our.experts') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -29,11 +29,11 @@
                                 </div>
                             </div>
 
-                             <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Portfolio</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="portfolio" placeholder="General Manager"
-                                        id="example-text-input">
+                                    <input class="form-control" type="text" name="portfolio"
+                                        placeholder="General Manager" id="example-text-input">
                                     <br>
                                     @error('portfolio')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -52,20 +52,18 @@
                             </div> <!-- end row -->
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
-                                
-                                <img id="showImage" class="rounded avatar-lg"
-                                        src="{{ url('uploads/no_image.jpg') }}" alt="Card image cap">
-                                </div>
-                                 {{-- @error('experts_image') 
-                                <div class="alert alert-danger">{{ $message }}</div> 
-                                @enderror  --}}
-                            </div> 
+
+                                <img id="showImage" class="rounded avatar-lg" src="{{ url('uploads/no_image.jpg') }}"
+                                    alt="Card image cap">
+                            </div>
+
 
                             <br>
                             <div>
-                                <button style="width: 120px; " class="btn btn-primary btn-rounded"
+                                <button style="width: 150px; " class="btn btn-primary btn-rounded"
                                     type="submit">Save</button>
                             </div>
+
                         </form>
                         <br>
                     </div>

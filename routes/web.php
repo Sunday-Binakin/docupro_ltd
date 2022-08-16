@@ -3,19 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\Home\BlogController;
-use App\Http\Controllers\Home\AboutController;
-use App\Http\Controllers\Home\FooterController;
-use App\Http\Controllers\Home\ContactController;
-use App\Http\Controllers\Home\PortfolioController;
-use App\Http\Controllers\Home\HomeSliderController;
-use App\Http\Controllers\HomePage\SliderController;
-use App\Http\Controllers\HomePage\ChoseUsController;
-use App\Http\Controllers\HomePage\ServiceController;
-use App\Http\Controllers\Home\BlogCategoryController;
-use App\Http\Controllers\HomePage\HomePageController;
-use App\Http\Controllers\HomePage\callExpertController;
-use App\Http\Controllers\HomePage\OurExpertsController;
+use App\Http\Controllers\Home\SliderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,13 +89,24 @@ Route::middleware('auth')->group(function () {
     });
 //home page slider
     Route::prefix('slider')->controller(SliderController::class)->group(function () {
-        Route::get('/all', 'allSliders')->name('all.sliders');
-        Route::get('/add', 'addSliders')->name('add.slider');
-        Route::post('/add/image', 'storeSlider')->name('store.image');
-        Route::get('/delete/{id}','deleteSlider')->name('delete.slider');
-        Route::get('/edit/{id}','editSlider')->name('edit.slider');
-        Route::post('/update','updateSlider')->name('update.slider');
+        // Route::get('/all', 'allSliders')->name('all.sliders');
+        // Route::get('/add', 'addSliders')->name('add.slider');
+        // Route::post('/add/image', 'storeSlider')->name('store.image');
+        // Route::get('/delete/{id}','deleteSlider')->name('delete.slider');
+        // Route::get('/edit/{id}','editSlider')->name('edit.slider');
+        // Route::post('/update','updateSlider')->name('update.slider');
 
+
+        // new routes
+        Route::get('/index', 'index')->name('slider.index');
+        Route::get('/create', 'create')->name('slider.create');
+        Route::post('/store', 'store')->name('slider.store');
+        Route::post('/show', 'show')->name('slider.show');
+        Route::get('/edit/{id}', 'edit')->name('slider.edit');
+        Route::post('/update', 'update')->name('slider.update');
+        Route::get('/destroy/{id}', 'destroy')->name('slider.destroy');
+        
+        
     });
 
     //homepage service

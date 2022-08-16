@@ -20,7 +20,7 @@
 
 
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bi bi-house-door-fill"></i>
                         <span>Home Page</span>
@@ -33,8 +33,18 @@
                         <li><a href="{{ route('all.our.experts') }}">Our Experts</a></li>
 
                     </ul>
-                </li>
+                </li> --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('slider.index') }}">Slider</a></li>
+                        <li><a>Why Chose Us</a></li>
 
+                    </ul>
+                </li>
 
 
 

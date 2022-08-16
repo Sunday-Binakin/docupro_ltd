@@ -4,22 +4,32 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a>Home Page</a></li>
+                        <li class="breadcrumb-item active">Slider</li>
+                    </ol>
+                </div>
+
                 <div class="card">
+
                     <div class="card-body">
-                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">Home Page Slider
+                        <br>
+                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">SLIDER
                         </h4>
                         <br>
                         <p class="card-title-desc">Add Images to your home page</p>
                         <br>
-                        <form method="POST" action="{{ route('store.image') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Image Tag</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control " type="text" name="title" placeholder="Title"
+                                    <input class="form-control " type="text" name="image_tag" placeholder="Business"
                                         id="example-text-input">
                                     <br>
-                                    @error('title')
+                                    @error('image_tag')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
@@ -28,12 +38,12 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Summary</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Url</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="summary" placeholder="Summary"
+                                    <input class="form-control" type="text" name="url" placeholder="https://images.google.com/"
                                         id="example-text-input">
                                     <br>
-                                    @error('summary')
+                                    @error('url')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -41,9 +51,9 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image </label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="image" name="image_slider" type="file">
+                                    <input class="form-control" id="image" name="slider_image" type="file">
                                     <br>
-                                    @error('image_slider')
+                                    @error('slider_image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

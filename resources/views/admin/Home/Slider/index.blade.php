@@ -9,7 +9,7 @@
 
                         <br>
                         <div>
-                            <a href="{{   route('add.slider') }}" style="width: 120px;float: right;"
+                            <a href="{{ route('slider.create') }}" style="width: 120px;float: right;"
                                 class="btn btn-primary btn-rounded" type="submit">Add Slider</a>
                         </div>
                         <br>
@@ -21,20 +21,21 @@
                             <thead>
                                 <tr>
                                     <th>Sn</th>
-                                    <th>Title</th>
-                                    <th>Summary</th>
+                                    <th>Tag</th>
+                                    <th>Url</th>
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($all_sliders as $key => $slider )
+                                @foreach ($show_all as $key => $show )
                                 <tr>
                                     <td>{{ $key+1}}</td>
-                                    <td>{{ $slider->title }}</td>
-                                    <td>{{ $slider->summary }}</td>
+                                    <td>{{ $show->image_tag}}</td>
+                                    <td>{{ $show->url }}</td>
+                                    {{-- <td>{{ $show->slider_image }}</td> --}}
                                     <td>
-                                        <img width="80px" height="50px" src="{{ asset($slider->image_slider) }}">
+                                        <img width="80px" height="50px" src="{{ asset($show->slider_image) }}">
                                     </td>
                                     <td>
                                         <div class="btn-group">
@@ -43,10 +44,10 @@
                                                     class="mdi mdi-chevron-down"></i></button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                    href="{{ route('edit.slider', $slider->id) }}">Edit</a>
+                                                    href="{{ route('slider.edit', $show->id) }}">Edit</a>
 
                                                 <a onclick="confirmation(event)"
-                                                    href="{{ route('delete.slider', $slider->id) }} "
+                                                    href="{{ route('slider.destroy', $show->id) }} "
                                                     class="dropdown-item" title="Delete Data" id="delete">Delete</a>
                                             </div>
                                         </div>
