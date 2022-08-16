@@ -71,33 +71,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/password', 'UpdatePassword')->name('update.password');
     });
 
-    //Home Slider All Route
-    // Route::controller(HomeSliderController::class)->group(function () {
-    //     Route::get('/home/slider', 'HomeSlider')->name('home.slider');
-    //     Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
-    // });
-
-
-    //Admin Home Page routes
-    Route::prefix('admin/call')->controller(callExpertController::class)->group(function () {
-        Route::get('/expert/all', 'callExpert')->name('all.call.experts');
-        Route::get('/experts', 'addCallExperts')->name('add.call.experts');
-        Route::post('/experts', 'storeCallExperts')->name('store.call.experts');
-        Route::get('/edit/experts/{id}', 'editCallExperts')->name('edit.call.experts');
-        Route::get('/delete/experts/{id}', 'deleteCallExperts')->name('delete.call.experts');
-        Route::post('/experts/update/', 'updateCallExperts')->name('update.call.experts');
-    });
-//home page slider
+    //home page slider
     Route::prefix('slider')->controller(SliderController::class)->group(function () {
-        // Route::get('/all', 'allSliders')->name('all.sliders');
-        // Route::get('/add', 'addSliders')->name('add.slider');
-        // Route::post('/add/image', 'storeSlider')->name('store.image');
-        // Route::get('/delete/{id}','deleteSlider')->name('delete.slider');
-        // Route::get('/edit/{id}','editSlider')->name('edit.slider');
-        // Route::post('/update','updateSlider')->name('update.slider');
-
-
-        // new routes
         Route::get('/index', 'index')->name('slider.index');
         Route::get('/create', 'create')->name('slider.create');
         Route::post('/store', 'store')->name('slider.store');
@@ -105,37 +80,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('slider.edit');
         Route::post('/update', 'update')->name('slider.update');
         Route::get('/destroy/{id}', 'destroy')->name('slider.destroy');
-        
-        
-    });
-
-    //homepage service
-    Route::prefix('service')->controller(ServiceController::class)->group(function () {
-        Route::get('/all', 'allServices')->name('all.services');
-        Route::get('/add', 'addService')->name('add.service');
-        Route::post('/store', 'storeService')->name('store.service');
-        Route::get('/delete/{id}', 'deleteService')->name('delete.service');
-        Route::get('/edit/{id}', 'editService')->name('edit.service');
-        Route::post('/update', 'updateService')->name('update.service');
-    });
-
-    Route::prefix('why/chose/us')->controller(ChoseUsController::class)->group(function () {
-        Route::get('/all', 'allWhyChoseUs')->name('all.why.chose.us');
-        Route::get('/add', 'addWhyChoseUs')->name('add.why.chose.us');
-        Route::post('/store', 'storeWhyChoseUs')->name('store.why.chose.us');
-        Route::post('/update', 'updateWhyChoseUs')->name('update.why.chose.us');
-        Route::get('/edit/{id}', 'editWhyChoseUs')->name('edit.why.chose.us');
-        Route::get('/delete/{id}', 'deleteWhyChoseUs')->name('delete.why.chose.us');
-    });
-
-
-    Route::prefix('our/experts')->controller(OurExpertsController::class)->group(function () {
-        Route::get('/all', 'allOurExperts')->name('all.our.experts');
-        Route::get('/add', 'addOurExperts')->name('add.our.experts');
-        Route::post('/store', 'storeOurExperts')->name('store.our.experts');
-        Route::post('/update', 'updateOurExperts')->name('update.our.experts');
-        Route::get('/edit/{id}', 'editOurExperts')->name('edit.our.experts');
-        Route::get('/delete/{id}', 'deleteOurExperts')->name('delete.our.experts');
     });
 });
 Route::get('/dashboard', function () {

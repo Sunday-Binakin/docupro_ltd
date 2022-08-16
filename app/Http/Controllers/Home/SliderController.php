@@ -91,7 +91,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_slider = Slider::FindOrFail($id);
+        return view('admin.Home.Slider.edit',compact('edit_slider'));
     }
 
     /**
@@ -101,9 +102,36 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $slider_id = $request->id;
+
+        if ($request->hasFile('slider_image')) {
+            $file = $request->file('slider_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/slider_images/', $filename);
+            Image::make(public_path('uploads/slider_images/' . $filename))->fit(400, 400)->save();
+
+            Slider::FindOrFail($slider_id)->update([
+                'image_tag' => $request->image_tag,
+                'url' => $request->url,
+                'slider_image' => 'uploads/slider_images/' . $filename,
+                'created_at' => Carbon::now(),
+            ]);
+            toast('Successfully Updated with Slider Image ', 'success', 'top-right')->hideCloseButton();
+        } else {
+
+            Slider::FindOrFail($slider_id)->update([
+                'image_tag' => $request->image_tag,
+                'url' => $request->url,
+
+            ]);
+            toast('Form Updated without Slider Image ', 'success', 'top-right')->hideCloseButton();
+        }
+
+        return redirect()->route('slider.index');
+    
     }
 
     /**
@@ -114,6 +142,8 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Slider::FindOrFail($id)->delete();
+        toast('Deleted! ', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('slider.index');
     }
 }
