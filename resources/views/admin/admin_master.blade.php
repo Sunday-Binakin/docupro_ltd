@@ -187,20 +187,12 @@
 {{-- ck editor --}}
 <script src="{{ asset('backend/ckeditor/ckeditor.js') }}"></script>
 <script>
-    // StandardEditor
-            // .create( document.querySelector( '#editor' ) )
-            // .then( editor => {
-            //         console.log( editor );
-            // } )
-            // .catch( error => {
-            //         console.error( error );
-            // } );
-            CKEDITOR.replace( 'short_summary' );
-</script>
-<script>
-     CKEDITOR.replace( 'summary' );
+    CKEDITOR.replace( 'why_chose_us' );
 </script>
 
+<script>
+    CKEDITOR.replace( 'summary' );
+</script>
     <!--tinymce js-->
     {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}
 

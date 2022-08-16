@@ -19,7 +19,7 @@ class SliderController extends Controller
     {
         $show_all = Slider::latest()->get();
 
-        return view('admin.Home.Slider.index',compact('show_all'));
+        return view('admin.Home.Slider.index', compact('show_all'));
     }
 
     /**
@@ -80,7 +80,6 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-       
     }
 
     /**
@@ -92,7 +91,7 @@ class SliderController extends Controller
     public function edit($id)
     {
         $edit_slider = Slider::FindOrFail($id);
-        return view('admin.Home.Slider.edit',compact('edit_slider'));
+        return view('admin.Home.Slider.edit', compact('edit_slider'));
     }
 
     /**
@@ -131,7 +130,6 @@ class SliderController extends Controller
         }
 
         return redirect()->route('slider.index');
-    
     }
 
     /**

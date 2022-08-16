@@ -41,7 +41,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('slider.index') }}">Slider</a></li>
-                        <li><a>Why Chose Us</a></li>
+                        <li><a href="{{ route('why.chose.us.index') }}">Why Chose Us</a></li>
 
                     </ul>
                 </li>

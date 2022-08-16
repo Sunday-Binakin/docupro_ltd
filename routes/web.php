@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Home\SliderController;
+use App\Http\Controllers\Home\WhyChoseUsController;
 
 
 /*
@@ -71,7 +72,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/password', 'UpdatePassword')->name('update.password');
     });
 
-    //home page slider
+    //home Slider
     Route::prefix('slider')->controller(SliderController::class)->group(function () {
         Route::get('/index', 'index')->name('slider.index');
         Route::get('/create', 'create')->name('slider.create');
@@ -81,6 +82,17 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', 'update')->name('slider.update');
         Route::get('/destroy/{id}', 'destroy')->name('slider.destroy');
     });
+
+    //Home Why chose Us
+    Route::prefix('why/chose/us')->controller(WhyChoseUsController::class)->group(function () {
+        Route::get('/index', 'index')->name('why.chose.us.index');
+        Route::get('/create', 'create')->name('why.chose.us.create');
+        Route::post('/store', 'store')->name('why.chose.us.store');
+        Route::get('/edit/{id}', 'edit')->name('why.chose.us.edit');
+        Route::post('/update', 'update')->name('why.chose.us.update');
+        Route::get('/destroy/{id}', 'destroy')->name('why.chose.us.destroy');
+    });
+
 });
 Route::get('/dashboard', function () {
     return view('admin.index');
