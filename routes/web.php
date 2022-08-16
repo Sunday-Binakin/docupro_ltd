@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\About\AboutCompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
@@ -92,7 +93,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', 'update')->name('why.chose.us.update');
         Route::get('/destroy/{id}', 'destroy')->name('why.chose.us.destroy');
     });
-
+    //About Company Routes
+    Route::prefix('about/company')->controller(AboutCompanyController::class)->group(function () {
+        Route::get('/index', 'index')->name('about.company.index');
+        Route::get('/create', 'create')->name('about.company.create');
+        Route::post('/store', 'store')->name('about.company.store');
+        Route::get('/edit/{id}', 'edit')->name('about.company.edit');
+            Route::post('/update/{id}', 'update')->name('about.company.update');
+        Route::get('/destroy/{id}', 'destroy')->name('about.company.destroy');
+    });
 });
 Route::get('/dashboard', function () {
     return view('admin.index');

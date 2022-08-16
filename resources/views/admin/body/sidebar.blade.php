@@ -45,7 +45,18 @@
 
                     </ul>
                 </li>
-
+<li>
+    <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+    </a>
+    <ul class="sub-menu" aria-expanded="false">
+        <li><a href="{{ route('about.company.index') }}">About Company</a></li>
+        <li><a>Team</a></li>
+        <li><a>Testimonials</a></li>
+        <li><a>Purpose Statement</a></li>
+    </ul>
+</li>
 
 
 

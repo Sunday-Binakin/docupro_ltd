@@ -192,6 +192,8 @@
 
 <script>
     CKEDITOR.replace( 'summary' );
+    CKEDITOR.replace( 'about' );
+    CKEDITOR.replace( 'about_summary' );
 </script>
     <!--tinymce js-->
     {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}
