@@ -194,6 +194,9 @@
     CKEDITOR.replace( 'summary' );
     CKEDITOR.replace( 'about' );
     CKEDITOR.replace( 'about_summary' );
+    CKEDITOR.replace( 'mission' );
+    CKEDITOR.replace( 'vision' );
+    CKEDITOR.replace( 'values' );
 </script>
     <!--tinymce js-->
     {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}

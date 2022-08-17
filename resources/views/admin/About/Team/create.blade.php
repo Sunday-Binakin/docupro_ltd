@@ -82,7 +82,7 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Add Image </label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" id="image" name="member_image" type="file">
+                                    <input class="form-control" id="member_image" name="member_image" type="file">
                                     <br>
                                     @error('member_image')
                                     <div class="alert alert-danger">{{ $message }}</div>

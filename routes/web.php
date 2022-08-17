@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutCompanyController;
+use App\Http\Controllers\About\PurposeStatementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
@@ -111,6 +112,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/{id}', 'update')->name('team.update');
         Route::get('/destroy/{id}', 'destroy')->name('team.destroy');
     });
+
+    //Pupose statement routes
+    Route::prefix('purpose/statement')->controller(PurposeStatementController::class)->group(function () {
+        Route::get('/create', 'create')->name('purpose.statement.create');
+        Route::post('/store', 'store')->name('purpose.statement.store');
+        Route::get('/show', 'show')->name('purpose.statement.show');
+    });
+
 });
 Route::get('/dashboard', function () {
     return view('admin.index');

@@ -54,7 +54,7 @@
         <li><a href="{{ route('about.company.create') }}">About Company</a></li>
         <li><a href="{{ route('team.index') }}">Team</a></li>
         <li><a>Testimonials</a></li>
-        <li><a>Purpose Statement</a></li>
+        <li><a href="{{ route('purpose.statement.create') }}">Purpose Statement</a></li>
     </ul>
 </li>
 
