@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\About\AboutCompanyController;
-use App\Http\Controllers\About\PurposeStatementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\About\TeamController;
 use App\Http\Controllers\Home\SliderController;
 use App\Http\Controllers\Home\WhyChoseUsController;
-use App\Http\Controllers\About\TeamController;
 
+use App\Http\Controllers\About\AboutCompanyController;
+use App\Http\Controllers\About\TestimonialsController;
+use App\Http\Controllers\About\PurposeStatementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +104,7 @@ Route::middleware('auth')->group(function () {
         
     });
 
-    //About/Tam Routes
+    //About/Team Routes
     Route::prefix('team')->controller(TeamController::class)->group(function () {
         Route::get('/index', 'index')->name('team.index');
         Route::get('/create', 'create')->name('team.create');
@@ -113,13 +114,22 @@ Route::middleware('auth')->group(function () {
         Route::get('/destroy/{id}', 'destroy')->name('team.destroy');
     });
 
-    //Pupose statement routes
+    //Purpose statement routes
     Route::prefix('purpose/statement')->controller(PurposeStatementController::class)->group(function () {
         Route::get('/create', 'create')->name('purpose.statement.create');
         Route::post('/store', 'store')->name('purpose.statement.store');
         Route::get('/show', 'show')->name('purpose.statement.show');
     });
 
+    //Testimony Routes
+    Route::prefix('testimony')->controller(TestimonialsController::class)->group(function () {
+        Route::get('/index', 'index')->name('testimony.index');
+        Route::get('/create', 'create')->name('testimony.create');
+        Route::post('/store', 'store')->name('testimony.store');
+        Route::get('/edit/{id}', 'edit')->name('testimony.edit');
+        Route::post('/update/{id}', 'update')->name('testimony.update');
+        Route::get('/destroy/{id}', 'destroy')->name('testimony.destroy');
+    });
 });
 Route::get('/dashboard', function () {
     return view('admin.index');

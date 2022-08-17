@@ -197,6 +197,7 @@
     CKEDITOR.replace( 'mission' );
     CKEDITOR.replace( 'vision' );
     CKEDITOR.replace( 'values' );
+    CKEDITOR.replace( 'testimony' );
 </script>
     <!--tinymce js-->
     {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}
