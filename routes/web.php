@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutCompanyController;
+use App\Http\Controllers\About\TeamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
@@ -101,6 +102,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('about.company.edit');
             Route::post('/update/{id}', 'update')->name('about.company.update');
         Route::get('/destroy/{id}', 'destroy')->name('about.company.destroy');
+    });
+
+    //About/Tam Routes
+    Route::prefix('team')->controller(TeamController::class)->group(function () {
+        Route::get('/index', 'index')->name('team.index');
+        Route::get('/create', 'create')->name('team.create');
+        Route::post('/store', 'store')->name('team.store');
+        Route::get('/edit/{id}', 'edit')->name('team.edit');
+        Route::post('/update/{id}', 'update')->name('team.update');
+        Route::get('/destroy/{id}', 'destroy')->name('team.destroy');
     });
 });
 Route::get('/dashboard', function () {
