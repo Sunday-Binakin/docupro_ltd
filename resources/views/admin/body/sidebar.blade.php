@@ -51,10 +51,10 @@
         <span>About</span>
     </a>
     <ul class="sub-menu" aria-expanded="false">
-        <li><a href="{{ route('about.company.create') }}">About Company</a></li>
+        <li><a href="{{ route('about.company.show') }}">About Company</a></li>
         <li><a href="{{ route('team.index') }}">Team</a></li>
         <li><a>Testimonials</a></li>
-        <li><a href="{{ route('purpose.statement.create') }}">Purpose Statement</a></li>
+        <li><a href="{{ route('purpose.statement.show') }}">Purpose Statement</a></li>
     </ul>
 </li>
 
