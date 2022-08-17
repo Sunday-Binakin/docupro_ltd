@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\About\AboutCompanyController;
-use App\Http\Controllers\About\TeamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Home\SliderController;
 use App\Http\Controllers\Home\WhyChoseUsController;
+use App\Http\Controllers\About\TeamController;
 
 
 /*
@@ -96,12 +96,10 @@ Route::middleware('auth')->group(function () {
     });
     //About Company Routes
     Route::prefix('about/company')->controller(AboutCompanyController::class)->group(function () {
-        Route::get('/index', 'index')->name('about.company.index');
         Route::get('/create', 'create')->name('about.company.create');
         Route::post('/store', 'store')->name('about.company.store');
-        Route::get('/edit/{id}', 'edit')->name('about.company.edit');
-            Route::post('/update/{id}', 'update')->name('about.company.update');
-        Route::get('/destroy/{id}', 'destroy')->name('about.company.destroy');
+        Route::get('/show', 'show')->name('about.company.show');
+        
     });
 
     //About/Tam Routes

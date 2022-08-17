@@ -15,8 +15,8 @@ class AboutCompanyController extends Controller
      */
     public function index()
     {
-        $all_about_company = AboutCompany::latest()->get();
-        return view('admin.About.About_company.index', compact('all_about_company'));
+        // $all_about_company = AboutCompany::latest()->get();
+        // return view('admin.About.About_company.index', compact('all_about_company'));
     }
 
     /**
@@ -42,6 +42,7 @@ class AboutCompanyController extends Controller
             'about_summary' => 'required',
             'about' => 'required'
         ], [
+
             'about.required' => 'Please fill the text editor',
             'about_summary.required' => 'Please fill the text editor'
         ]);
@@ -51,9 +52,11 @@ class AboutCompanyController extends Controller
             'about' => $request->about
         ]);
 
-        alert()->success('Successfully Added')->persistent(true, false);
 
-        return redirect()->route('about.company.index');
+
+        alert()->success('Successfully Saved')->persistent(true, false);
+        // return redirect()->route('about.company.show');
+        return redirect()->back();
     }
 
     /**
@@ -62,9 +65,10 @@ class AboutCompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $edit_about_company = AboutCompany::Find(1);
+        return view('admin.About.About_company.show', compact('edit_about_company'));
     }
 
     /**
@@ -73,10 +77,10 @@ class AboutCompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $edit_about_company = AboutCompany::FindOrFail($id);
-        return view('admin.About.About_company.edit',compact('edit_about_company'));
+        // $edit_about_company = AboutCompany::FindOrFail($id);
+        // return view('admin.About.About_company.edit', compact('edit_about_company'));
     }
 
     /**
@@ -88,15 +92,15 @@ class AboutCompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $update_id = $request->id;
-        AboutCompany::FindOrFail($id)->update([
-            'about_summary' => $request->about_summary,
-            'about' => $request->about
-        ]);
-        toast('Updated', 'success', 'top-right')->hideCloseButton();
+        // // $update_id = $request->id;
+        // AboutCompany::FindOrFail($id)->update([
+        //     'about_summary' => $request->about_summary,
+        //     'about' => $request->about
+        // ]);
+        // toast('Updated', 'success', 'top-right')->hideCloseButton();
 
 
-        return redirect()->route('about.company.index');
+        // return redirect()->route('about.company.create');
     }
 
     /**
@@ -107,8 +111,8 @@ class AboutCompanyController extends Controller
      */
     public function destroy($id)
     {
-        AboutCompany::FindOrFail($id)->delete();
-        toast('Deleted', 'success', 'top-right')->hideCloseButton();
-        return redirect()->route('about.company.index');
+        // AboutCompany::FindOrFail($id)->delete();
+        // toast('Deleted', 'success', 'top-right')->hideCloseButton();
+        // return redirect()->route('about.company.index');
     }
 }

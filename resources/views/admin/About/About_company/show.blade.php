@@ -8,13 +8,13 @@
                     <div class="card-body">
 
 
-                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">UPDATE ABOUT COMPANY
+                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">ABOUT COMPANY
                         </h4>
                         <br>
                         {{-- <p class="card-title-desc">Add Images to your home page</p> --}}
                         <br>
 
-                        <form method="POST" action="{{ route('about.company.update', $edit_about_company->id) }}">
+                        <form method="POST" action="{{ route('about.company.store', $edit_about_company->id) }}">
                             @csrf
                             
                             <div class="row mb-3">
@@ -46,7 +46,7 @@
                             <br>
                             <div>
                                 <button style="width: 120px; " class="btn btn-primary btn-rounded"
-                                    type="submit">Update</button>
+                                    type="submit">Save</button>
                             </div>
                         </form>
                         <br>
