@@ -9,6 +9,7 @@ use App\Http\Controllers\Home\WhyChoseUsController;
 
 use App\Http\Controllers\About\AboutCompanyController;
 use App\Http\Controllers\About\TestimonialsController;
+use App\Http\Controllers\NewsMagazine\GalleryController;
 use App\Http\Controllers\About\PurposeStatementController;
 
 /*
@@ -129,6 +130,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('testimony.edit');
         Route::post('/update/{id}', 'update')->name('testimony.update');
         Route::get('/destroy/{id}', 'destroy')->name('testimony.destroy');
+    });
+
+    Route::prefix('gallery')->controller(GalleryController::class)->group(function () {
+        Route::get('/index', 'index')->name('gallery.index');
+        Route::get('/create', 'create')->name('gallery.create');
+        Route::post('/store', 'store')->name('gallery.store');
+        Route::get('/edit/{id}', 'edit')->name('gallery.edit');
+        Route::post('/update/{id}', 'update')->name('gallery.update');
+        Route::get('/destroy/{id}', 'destroy')->name('gallery.destroy');
     });
 });
 Route::get('/dashboard', function () {
