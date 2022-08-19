@@ -7,6 +7,7 @@ use App\Http\Controllers\About\TeamController;
 use App\Http\Controllers\Home\SliderController;
 use App\Http\Controllers\Home\WhyChoseUsController;
 
+use App\Http\Controllers\NewsMagazine\BlogController;
 use App\Http\Controllers\About\AboutCompanyController;
 use App\Http\Controllers\About\TestimonialsController;
 use App\Http\Controllers\NewsMagazine\GalleryController;
@@ -139,6 +140,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('gallery.edit');
         Route::post('/update/{id}', 'update')->name('gallery.update');
         Route::get('/destroy/{id}', 'destroy')->name('gallery.destroy');
+    });
+
+    Route::prefix('blog')->controller(BlogController::class)->group(function () {
+        Route::get('/index', 'index')->name('blog.index');
+        Route::get('/create', 'create')->name('blog.create');
+        Route::post('/store', 'store')->name('blog.store');
+        Route::get('/edit/{id}', 'edit')->name('blog.edit');
+        Route::post('/update/{id}', 'update')->name('blog.update');
+        Route::get('/destroy/{id}', 'destroy')->name('blog.destroy');
     });
 });
 Route::get('/dashboard', function () {

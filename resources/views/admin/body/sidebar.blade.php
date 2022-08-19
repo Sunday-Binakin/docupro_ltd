@@ -65,7 +65,7 @@
         <span>News & Magazines</span>
     </a>
     <ul class="sub-menu" aria-expanded="false">
-        <li><a>Blogs</a></li>
+        <li><a href="{{ route('blog.index') }}">Blogs</a></li>
         <li><a href="{{ route('gallery.index') }}">Gallery</a></li>
        
     </ul>

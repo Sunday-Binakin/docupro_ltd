@@ -198,6 +198,8 @@
     CKEDITOR.replace( 'vision' );
     CKEDITOR.replace( 'values' );
     CKEDITOR.replace( 'testimony' );
+    CKEDITOR.replace( 'story_body' );
+    CKEDITOR.replace( 'story_summary' );
 </script>
     <!--tinymce js-->
     {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}
