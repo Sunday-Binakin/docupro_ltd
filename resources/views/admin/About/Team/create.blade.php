@@ -4,17 +4,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-
-                {{-- <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a>Home Page</a></li>
-                        <li class="breadcrumb-item active">Slider</li>
-                    </ol>
-                </div> --}}
-
                 <div class="card">
-
-                    <div class="card-body">
+                      <div class="card-body">
                         <br>
                         <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">TEAM
                         </h4>
@@ -53,10 +44,10 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Linkedin Profile</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" type="text" name="linkedln"
+                                    <input class="form-control" type="url" name="linkedin"
                                         placeholder="https://www.linkedin.com/feed/" id="example-text-input">
                                     <br>
-                                    @error('linkedln')
+                                    @error('linkedin')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -82,13 +73,14 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Add Image </label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" id="member_image" name="member_image" type="file">
+                                    <input class="form-control" id="image" name="member_image" type="file">
                                     <br>
                                     @error('member_image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div> <!-- end row -->
+                            
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
 

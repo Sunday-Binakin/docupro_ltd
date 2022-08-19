@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('name')->nullable();
             $table->text('portfolio')->nullable();
-            $table->text('linkedln')->nullable();
+            $table->string('linkedin')->nullable();
             $table->mediumText('about')->nullable();
             $table->text('member_image')->nullable();
             $table->timestamps();

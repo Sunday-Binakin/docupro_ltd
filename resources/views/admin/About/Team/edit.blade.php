@@ -53,8 +53,8 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Linkedln Profile</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" name="linkedln"
-                                        value="{{ $edit_team_member->linkedln }}" id="example-text-input">
+                                    <input class="form-control" type="url" name="linkedin"
+                                        value="{{ $edit_team_member->linkedin }}" id="example-text-input">
                                     <br>
                                     @error('linkedln')
                                     <div class="alert alert-danger">{{ $message }}</div>

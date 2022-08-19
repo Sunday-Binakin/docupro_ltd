@@ -44,13 +44,13 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required',
             'portfolio' => 'required',
-            'linkedln' => 'required',
+            'linkedin' => 'required',
             'about' => 'required',
             'member_image' => 'required',
         ], [
             'name.required' => 'Please fill the text editor',
             'portfolio.required' => 'Add the portfolio of team member',
-            'linkedln.required' => 'Add a link to the person LinkedIn profile',
+            'linkedin.required' => 'Add a link to the person LinkedIn profile',
             'about.required' => 'Please fill the text editor with the bio',
             'member_image.required' => 'Please Add an image',
         ]);
@@ -58,17 +58,17 @@ class TeamController extends Controller
             $file = $request->file('member_image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('uploads/team_images/', $filename);
-            Image::make(public_path('uploads/team_images/' . $filename))->fit(400, 400)->save();
+            $file->move('uploads/member_images/', $filename);
+            Image::make(public_path('uploads/member_images/' . $filename))->fit(400, 400)->save();
         } else {
             $filename = 'default.png';
         }
         Team::insert([
             'name' => $request->name,
             'portfolio' => $request->portfolio,
-            'linkedln' => $request->linkedln,
+            'linkedin' => $request->linkedin,
             'about' => $request->about,
-            'member_image' =>'uploads/slider_images/' . $filename,
+            'member_image' => 'uploads/member_images/' . $filename,
             'created_at' => Carbon::now(),
 
         ]);
@@ -121,9 +121,9 @@ class TeamController extends Controller
             Team::FindOrFail($id)->update([
                 'name' => $request->name,
                 'portfolio' => $request->portfolio,
-                'linkedln' => $request->linkedln,
+                'linkedin' => $request->linkedin,
                 'about' => $request->about,
-                'member_image' =>'uploads/slider_images/' . $filename,
+                'member_image' => 'uploads/member_images/' . $filename,
                 'created_at' => Carbon::now(),
 
             ]);
@@ -133,7 +133,7 @@ class TeamController extends Controller
             Team::FindOrFail($id)->update([
                 'name' => $request->name,
                 'portfolio' => $request->portfolio,
-                'linkedln' => $request->linkedln,
+                'linkedin' => $request->linkedin,
                 'about' => $request->about,
                 'created_at' => Carbon::now(),
 

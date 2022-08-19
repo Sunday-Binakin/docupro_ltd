@@ -35,7 +35,7 @@
                                     <td>{{ $key+1}}</td>
                                     <td>{{ $member->name}}</td>
                                     <td>{{ $member->portfolio }}</td>
-                                    <td>{{ $member->linkedIn }}</td> 
+                                    <td>{{ $member->linkedin }}</td> 
                                     <td>{!!Str::limit($member->about, 80) !!}</td>
                                      <td>
                                         <img width="80px" height="50px" src="{{ asset($member->member_image) }}">
