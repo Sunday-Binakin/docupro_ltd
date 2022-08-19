@@ -7,18 +7,20 @@
                 <div class="card">
                     <div class="card-body">
                         <br>
-                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">TEAM
+                        <h4 class="card-title ; btn font-26 btn-primary waves-effect waves-light w-100">GALLERY
                         </h4>
                         <br>
-                        <p class="card-title-desc">Add Testimony</p>
                         <br>
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <p class="card-title-desc">Add More Images</p>
+                        <br>
+                        <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
+                                
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Image
-                                    Description</label>
-                                <div class="col-sm-12">
-                                    <input class="form-control " type="text" name="image_description" placeholder=""
+                                    Description</label><br>
+                                <div class="col-sm-10">
+                                    <input class="form-control " type="text" name="image_description" placeholder="lorem ipsum"
                                         id="example-text-input">
                                     <br>
                                     @error('image_description')
@@ -31,10 +33,10 @@
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Add Image</label>
-                                <div class="col-sm-12">
-                                    <input class="form-control" id="image" name="image" type="file">
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="image" name="gallery_image" type="file">
                                     <br>
-                                    @error('image')
+                                    @error('gallery_image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -42,7 +44,7 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
 
-                                <div class="col-sm-12">
+                                <div class="col-sm-10">
                                     <img id="showImage" class="rounded avatar-lg"
                                         src="{{ url('uploads/no_image.jpg') }}" alt="Card image cap">
                                 </div>

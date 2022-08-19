@@ -55,10 +55,21 @@
         <li><a href="{{ route('team.index') }}">Team</a></li>
         <li><a href="{{ route('testimony.index') }}">Testimonials</a></li>
         <li><a href="{{ route('purpose.statement.show') }}">Purpose Statement</a></li>
+        
     </ul>
 </li>
 
-
+<li>
+    <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="ri-newspaper-line"></i>
+        <span>News & Magazines</span>
+    </a>
+    <ul class="sub-menu" aria-expanded="false">
+        <li><a>Blogs</a></li>
+        <li><a href="{{ route('gallery.index') }}">Gallery</a></li>
+       
+    </ul>
+</li>
 
 
             </ul>

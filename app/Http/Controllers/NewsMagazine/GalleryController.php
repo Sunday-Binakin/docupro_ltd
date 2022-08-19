@@ -17,7 +17,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $show_all_gallery_images = Gallery::latest()->get();
+        return view('admin.News_and_Magazine.gallery.index',compact('show_all_gallery_images'));
     }
 
     /**
@@ -41,10 +42,10 @@ class GalleryController extends Controller
         //validate data
         $request->validate([
             'image_description' => 'required',
-            'image' => 'required'
+            'gallery_image' => 'required'
         ], [
             'image_description.required' => 'Please add description',
-            'image' => 'Please add an image'
+            'gallery_image' => 'Please add an image'
         ]);
 
         //handling how the image is stored
@@ -53,14 +54,14 @@ class GalleryController extends Controller
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('uploads/gallery_images/', $filename);
-            Image::make(public_path('uploads/gallery_image/' . $filename))->fit(400, 400)->save();
+            Image::make(public_path('uploads/gallery_images/' . $filename))->fit(400, 400)->save();
         } else {
             $filename = 'default.png';
         }
 
         Gallery::insert([
             'image_description' => $request->image_description,
-            'image' => 'uploads/gallery_images/' . $filename,
+            'gallery_image' => 'uploads/gallery_images/' . $filename,
             'created_at' => Carbon::now(),
         ]);
 
@@ -88,7 +89,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_gallery = Gallery::FindOrFail($id);
+        return view('admin.News_and_Magazine.gallery.edit', compact('edit_gallery'));
     }
 
     /**
@@ -100,7 +102,32 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('gallery_image')) {
+            $file = $request->file('gallery_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/gallery_images/', $filename);
+            Image::make(public_path('uploads/gallery_images/' . $filename))->fit(400, 400)->save();
+
+            Gallery::FindOrFail($id)->update([
+
+                'image_description' => $request->image_description,
+                'gallery_image' => 'uploads/gallery_images/' . $filename,
+                'updated_at' => Carbon::now(),
+
+            ]);
+            toast('Successfully Updated with Image ', 'success', 'top-right')->hideCloseButton();
+        } else {
+
+            Gallery::FindOrFail($id)->update([
+                'image_description' => $request->image_description,
+                'updated_at' => Carbon::now(),
+
+            ]);
+            toast('Form Updated without Image ', 'success', 'top-right')->hideCloseButton();
+        }
+        toast('Updated with out change of Image ', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('gallery.index');
     }
 
     /**
@@ -111,6 +138,8 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gallery::FindOrFail($id)->delete();
+        toast('Deleted ', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('gallery.index');
     }
 }

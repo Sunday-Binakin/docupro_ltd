@@ -129,7 +129,7 @@ class TestimonialsController extends Controller
             toast('Successfully Updated with Image ', 'success', 'top-right')->hideCloseButton();
         } else {
 
-            Testimonials::insert([
+            Testimonials::FindOrFail($id)->update([
                 'name' => $request->name,
                 'position' => $request->position,
                 'company_name' => $request->company_name,
