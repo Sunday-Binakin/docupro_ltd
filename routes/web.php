@@ -150,6 +150,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/{id}', 'update')->name('blog.update');
         Route::get('/destroy/{id}', 'destroy')->name('blog.destroy');
     });
+
+    Route::prefix('service')->controller(ServiceController::class)->group(function () {
+        Route::get('/index', 'index')->name('service.index');
+        Route::get('/create', 'create')->name('service.create');
+        Route::post('/store', 'store')->name('service.store');
+        Route::get('/edit/{id}', 'edit')->name('service.edit');
+        Route::post('/update/{id}', 'update')->name('service.update');
+        Route::get('/destroy/{id}', 'destroy')->name('service.destroy');
+    });
 });
 Route::get('/dashboard', function () {
     return view('admin.index');
