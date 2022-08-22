@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
             $table->text('category_name')->nullable();
-            $table->integer('status')->nullable();
+            $table->text('status')->nullable();
             $table->text('product_category_cover_image')->nullable();
             $table->timestamps();
         });

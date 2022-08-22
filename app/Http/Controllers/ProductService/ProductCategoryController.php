@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use App\Models\ProductService\ProductCategory;
+use Carbon\Carbon;
 
 class ProductCategoryController extends Controller
 {
@@ -17,7 +18,7 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $all_categories = ProductCategory::latest()->get();
-        return view('admin.Product_service.product_category.index',compact('all_categories'));
+        return view('admin.Product_service.product_category.index', compact('all_categories'));
     }
 
     /**
@@ -41,13 +42,13 @@ class ProductCategoryController extends Controller
         //validate
 
         $request->validate([
-            'category_name'=>'required',
-            'status'=>'required',
-            'product_category_cover_image'=>'required'
-        ],[
-            'category_name.required'=>'Please Add category',
-            'status.required'=> 'What is the Status of the product',
-            'product_category_cover_image.required'=>'Please add an image'
+            'category_name' => 'required',
+            'status' => 'required',
+            'product_category_cover_image' => 'required'
+        ], [
+            'category_name.required' => 'Please Add category',
+            'status.required' => 'What is the Status of the product',
+            'product_category_cover_image.required' => 'Please add an image'
         ]);
         //handling how the image is stored
         if ($request->hasFile('product_category_cover_image')) {
@@ -60,9 +61,10 @@ class ProductCategoryController extends Controller
             $filename = 'default.png';
         }
         ProductCategory::insert([
-            'category_name'=>$request->category_name,
-            'status'=>$request->status,
+            'category_name' => $request->category_name,
+            'status' => $request->status,
             'product_category_cover_image' => 'uploads/product_category_cover_images/' . $filename,
+            'created_at' => Carbon::now()
         ]);
 
         alert()->success('Successfully Added')->persistent(true, false);
@@ -88,7 +90,8 @@ class ProductCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_category = ProductCategory::FindOrFail($id);
+        return view('admin.Product_service.product_category.edit', compact('edit_category'));
     }
 
     /**
@@ -100,8 +103,36 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //handling how the image is stored
+        if ($request->hasFile('product_category_cover_image')) {
+            $file = $request->File('product_category_cover_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/product_category_cover_images/', $filename);
+            Image::make(public_path('uploads/product_category_cover_images/' . $filename))->fit(400, 400)->save();
+
+            ProductCategory::FindOrFail($id)->update([
+                'category_name' => $request->category_name,
+                'status' => $request->status,
+                'product_category_cover_image' => 'uploads/product_category_cover_images/' . $filename,
+                'updated_at' => Carbon::now()
+            ]);
+            toast('Form Updated with Image ', 'success', 'top-right')->hideCloseButton();
+        } else {
+            ProductCategory::FindOrFail($id)->update([
+                'category_name' => $request->category_name,
+                'status' => $request->status,
+                // 'product_category_cover_image' => 'uploads/product_category_cover_images/' . $filename,
+                'updated_at' => Carbon::now()
+            ]);
+            toast('Form Updated without Image ', 'success', 'top-right')->hideCloseButton();
+        }
+
+
+        // alert()->success('Successfully Added')->persistent(true, false);
+        return redirect()->route('product.category.index');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -111,6 +142,8 @@ class ProductCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ProductCategory::FindOrFail($id)->delete();
+        toast('Delete', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('product.category.index');
     }
 }

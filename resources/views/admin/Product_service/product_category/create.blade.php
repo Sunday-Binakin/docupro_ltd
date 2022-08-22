@@ -31,8 +31,9 @@
                                         <label class="form-label">Status</label>
                                         <select class="form-select" required="" name="status">
                                             <option selected="" disabled="" >Status...</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+
                                         </select>
                                         @error('status')
 
