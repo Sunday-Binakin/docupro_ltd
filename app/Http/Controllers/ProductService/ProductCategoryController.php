@@ -143,7 +143,7 @@ class ProductCategoryController extends Controller
     public function destroy($id)
     {
         ProductCategory::FindOrFail($id)->delete();
-        toast('Delete', 'success', 'top-right')->hideCloseButton();
+        toast('Deleted', 'success', 'top-right')->hideCloseButton();
         return redirect()->route('product.category.index');
     }
 }

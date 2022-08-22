@@ -12,7 +12,7 @@
                         <br>
                         <p class="card-title-desc">Add Category</p>
                         <br>
-                        <form method="POST" action="{{ route('product.category.store',$edit_category->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('product.category.update',$edit_category->id) }}" enctype="multipart/form-data">
 
                             @csrf
                             <div class="row">
@@ -29,11 +29,11 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label class="form-label">Status</label>
-                                        <select class="form-select" required="" name="status">
-                                            <option selected="{{ ($edit_category->status =='active'? 'Active': 'Inactive') }}" disabled="">{{ $edit_category->status }}</option>
-                                            {{--
-                                            <option value="{{ $edit_category->status }}">Active</option>
-                                            <option value="{{ $edit_category->status }}">Inactive</option> --}}
+                                        <select class="form-select"  name="status">
+                                            {{-- <option selected="{{ ($edit_category->status =='active'? 'Active': 'Inactive') }}" disabled="">{{ $edit_category->status }}</option> --}}
+                                            
+                                            <option value="active" {{ $edit_category->status=='active'?'selected':'' }}>Active</option>
+                                            <option value="inactive {{ $edit_category->status=='inactive'?'selected':'' }}">Inactive</option>
 
                                         </select>
                                         @error('status')
