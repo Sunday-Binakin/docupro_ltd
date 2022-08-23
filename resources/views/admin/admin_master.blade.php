@@ -200,6 +200,11 @@
     CKEDITOR.replace( 'testimony' );
     CKEDITOR.replace( 'story_body' );
     CKEDITOR.replace( 'story_summary' );
+    CKEDITOR.replace( 'product_description' );
+
+
+    
+
 </script>
     <!--tinymce js-->
     {{-- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script> --}}

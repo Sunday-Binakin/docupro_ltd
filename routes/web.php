@@ -12,6 +12,7 @@ use App\Http\Controllers\About\AboutCompanyController;
 use App\Http\Controllers\About\TestimonialsController;
 use App\Http\Controllers\NewsMagazine\GalleryController;
 use App\Http\Controllers\About\PurposeStatementController;
+use App\Http\Controllers\ProductService\ProductController;
 use App\Http\Controllers\ProductService\ProductCategoryController;
 
 /*
@@ -168,6 +169,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('product.category.edit');
         Route::post('/update/{id}', 'update')->name('product.category.update');
         Route::get('/destroy/{id}', 'destroy')->name('product.category.destroy');
+    });
+
+    Route::prefix('product/')->controller(ProductController::class)->group(function () {
+        Route::get('/index', 'index')->name('product.index');
+        Route::get('/create', 'create')->name('product.create');
+        Route::post('/store', 'store')->name('product.store');
+        Route::get('/edit/{id}', 'edit')->name('product.edit');
+        Route::post('/update/{id}', 'update')->name('product.update');
+        Route::get('/destroy/{id}', 'destroy')->name('product.destroy');
     });
 });
 Route::get('/dashboard', function () {

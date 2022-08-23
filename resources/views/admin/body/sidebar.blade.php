@@ -89,7 +89,7 @@
     </a>
     <ul class="sub-menu" aria-expanded="false">
         <li><a href="{{ route('product.category.index') }}">Product Category</a></li>
-        <li><a >Product</a></li>
+        <li><a href="{{ route('product.index') }}">Product</a></li>
 
     </ul>
 </li>
