@@ -7,6 +7,7 @@ use App\Http\Controllers\About\TeamController;
 use App\Http\Controllers\Home\SliderController;
 use App\Http\Controllers\Home\WhyChoseUsController;
 
+use App\Http\Controllers\Services\ServiceController;
 use App\Http\Controllers\NewsMagazine\BlogController;
 use App\Http\Controllers\About\AboutCompanyController;
 use App\Http\Controllers\About\TestimonialsController;
@@ -154,12 +155,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('service')->controller(ServiceController::class)->group(function () {
-        Route::get('/index', 'index')->name('service.index');
         Route::get('/create', 'create')->name('service.create');
         Route::post('/store', 'store')->name('service.store');
-        Route::get('/edit/{id}', 'edit')->name('service.edit');
-        Route::post('/update/{id}', 'update')->name('service.update');
-        Route::get('/destroy/{id}', 'destroy')->name('service.destroy');
+        Route::get('/show', 'show')->name('service.show');
+        
     });
 
     Route::prefix('product/category')->controller(ProductCategoryController::class)->group(function () {

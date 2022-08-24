@@ -69,7 +69,7 @@ class ServiceController extends Controller
         // toast('Service Added Successfully!', 'success');
         alert()->success('Successfully Added')->persistent(true, false);
 
-        return redirect()->route('all.services');
+        return redirect()->route('ed.services');
     }
 
     public function deleteService($id)

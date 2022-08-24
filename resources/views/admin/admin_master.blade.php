@@ -201,6 +201,15 @@
     CKEDITOR.replace( 'story_body' );
     CKEDITOR.replace( 'story_summary' );
     CKEDITOR.replace( 'product_description' );
+    CKEDITOR.replace( 'service_body' );
+    CKEDITOR.replace( 'service_summary' );
+
+
+
+
+
+
+service_body
 
 
     
