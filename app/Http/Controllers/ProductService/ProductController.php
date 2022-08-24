@@ -19,7 +19,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $show_all_products = Product::with('product_categories')->get();
+        $show_all_products = Product::with('Category')->get();
+        // $show_all_products = Product::all();
         return view('admin.Product_service.products.index',compact('show_all_products'));
     }
 

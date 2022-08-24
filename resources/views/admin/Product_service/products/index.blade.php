@@ -20,7 +20,7 @@
                                 <tr>
                                     <th>Sn</th>
                                     <th>Product Name</th>
-                                    <th>Category</th>
+                                    <th>Category Name</th>
                                     <th>Description</th>
 
                                     <th> Cover Image</th>
@@ -33,14 +33,11 @@
                                     <td>{{ $key+1}}</td>
                                     <td>{{ $products->product_name}}</td>
 
-                                    <td>{{ $products->product_category->category_name }}</td>
-
+                                    <td>{{ $products->Category->category_name}}</td>
 
                                     <td>{{ $products->product_description }}</td>
-
                                     <td>
-                                        <img width="80px" height="50px" src="{{ asset($products->product_cover_image) }}">
-
+                                     <img width="80px" height="50px" src="{{ asset($products->product_cover_image) }}">
                                     </td>
                                     <td>
                                         <div class="btn-group">
