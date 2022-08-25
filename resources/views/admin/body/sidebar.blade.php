@@ -78,7 +78,8 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li><a href="{{ route('service.create') }}">Service</a></li>
-                    <li><a >Service Request</a></li>
+                      <li><a href="{{ route('service.category.create') }}">Service Category</a></li>
+                       <li><a >Service Request</a></li>
 
                 </ul>
             </li>

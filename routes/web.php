@@ -14,6 +14,7 @@ use App\Http\Controllers\About\TestimonialsController;
 use App\Http\Controllers\NewsMagazine\GalleryController;
 use App\Http\Controllers\About\PurposeStatementController;
 use App\Http\Controllers\ProductService\ProductController;
+use App\Http\Controllers\Services\ServiceCategoryController;
 use App\Http\Controllers\ProductService\ProductCategoryController;
 
 /*
@@ -159,6 +160,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('service.store');
         Route::get('/show', 'show')->name('service.show');
         
+    });
+    Route::prefix('service/category')->controller(ServiceCategoryController::class)->group(function () {
+        Route::get('/index', 'index')->name('service.category.index');
+        Route::get('/create', 'create')->name('service.category.create');
+        Route::post('/store', 'store')->name('service.category.store');
+        Route::get('/edit/{id}', 'edit')->name('service.category.edit');
+        Route::post('/update/{id}', 'update')->name('service.category.update');
+        Route::get('/destroy/{id}', 'destroy')->name('service.category.destroy');
     });
 
     Route::prefix('product/category')->controller(ProductCategoryController::class)->group(function () {
