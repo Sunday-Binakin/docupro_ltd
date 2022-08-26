@@ -12,16 +12,14 @@
                         <br>
                         <p class="card-title-desc">Edit Product</p>
                         <br>
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('product.update',$edit_product->id) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="mb-3">
-                                        <label class="form-label">Category Name</label>
-                                        <input type="text" class="form-control" name="product_name" value="">
+                                        <label class="form-label">Product Name</label>
+                                        <input type="text" class="form-control" name="product_name" value="{{ $edit_product->product_name }}">
                                         @error('product_name')
-
-
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -30,10 +28,13 @@
                                     <div class="mb-3">
                                         <label class="form-label">Category Id</label>
                                         <select class="form-select" required="" name="category_id">
-                                            <option selected="" disabled="">Id...</option>
-                                            <option value="1">Technology</option>
-                                            <option value="2">Agriculture</option>
+                                            <option selected="" disabled="">Update Category</option>
+                                            {{-- <option value="1">Technology</option>
+                                            <option value="2">Agriculture</option> --}}
+                                            @foreach($all_category as $category)
 
+                                            <option value="{{ $category->id }}" {{$category->id == $edit_product->product_category_id  ? 'selected' : ''}}>{{ $category->category_name}}</option>
+                                            @endforeach
                                         </select>
                                         @error('category_id')
 
@@ -47,7 +48,8 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Product Description</label>
                                     <div class="col-sm-12">
 
-                                        <textarea name="product_description" id=""></textarea>
+                                        <textarea name="product_description" id="">{!! $edit_product->product_description !!}</textarea>
+
                                         <br>
                                         @error('product_description')
 
@@ -74,13 +76,14 @@
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-12">
-                                        <img id="showImage" class="rounded avatar-lg" src="{{ url('uploads/no_image.jpg') }}" alt="Card image cap">
+                                        <img id="showImage" class="rounded avatar-lg" src="{{ asset($edit_product->product_cover_image) }}" alt="Card image cap">
+
                                     </div>
                                     <br>
                                 </div>
                                 <br>
                                 <div>
-                                    <button style="width: 120px; " class="btn btn-primary btn-rounded" type="submit">Save</button>
+                                    <button style="width: 120px; " class="btn btn-primary btn-rounded" type="submit">Update</button>
                                 </div>
                         </form>
                         <br>

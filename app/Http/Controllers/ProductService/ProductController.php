@@ -103,7 +103,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_product = Product::FindOrFail($id);
+        $all_category = ProductCategory::all();
+        return view('admin.Product_service.products.edit', compact('edit_product', 'all_category'));
     }
 
     /**
@@ -115,7 +117,36 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //handling how the image is stored
+        if ($request->hasFile('product_cover_image')) {
+            $file = $request->File('product_cover_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/product_cover_images/', $filename);
+            Image::make(public_path('uploads/product_cover_images/' . $filename))->fit(400, 400)->save();
+          
+            Product::FindOrFail($id)->update([
+            'product_name' => $request->product_name,
+            'product_category_id' => $request->product_category_id,
+            'product_description' => $request->product_description,
+            'product_cover_image' => 'uploads/product_cover_images/' . $filename,
+            'updated_at' => Carbon::now()
+
+            ]);
+            toast('Updated without Product Image', 'success', 'top-right')->hideCloseButton();
+        
+        } else {
+            Product::FindOrFail($id)->update([
+                'product_name' => $request->product_name,
+                'product_category_id' => $request->product_category_id,
+                'product_description' => $request->product_description,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+    
+        toast('Updated without Product Image', 'success', 'top-right')->hideCloseButton();
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -126,6 +157,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::FindOrFail($id)->delete();
+        toast('Deleted', 'success', 'top-right')->hideCloseButton();
+        return redirect()->route('product.index');
     }
 }
