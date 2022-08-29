@@ -15,7 +15,7 @@
                         <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Product Name</label>
                                         <input type="text" class="form-control" name="product_name" placeholder="Machinery">
@@ -28,18 +28,17 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label class="form-label">Category Id</label>
-                                        <select class="form-select" required="" name="product_category_id">
+                                        <label class="form-label">Category </label>
+                                        <select class="form-select" required="" 
+                                        name="product_category_id">
 
-                                             <option selected="" disabled="">Select category</option>
+                                        <option selected="" disabled="">Select category</option>
 
                                             @foreach ($product_cat as $category)
                                            
-                                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                            <option value="{{ $category->id }}">
+                                                {{ $category->category_name }}</option>
                                             @endforeach
-
-                                            {{-- <option value="1">Technology</option>
-                                            <option value="2">Agriculture</option> --}}
 
                                         </select>
                                         @error('product_category_id')
@@ -51,6 +50,24 @@
                                     </div>
                                 </div>
                                 <br>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                <label class="form-label">Status </label>
+                                <select class="form-select" required="" name="status">
+
+                                    <option selected="" disabled="">Select category</option>
+                                     <option value="1">Active</option>
+                                     <option value="0">Inctive</option>
+
+                                    </select>
+                                @error('status')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+
+                            </div>
+                        </div>
+                        <br>
+
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Product Description</label>
                                     <div class="col-sm-12">

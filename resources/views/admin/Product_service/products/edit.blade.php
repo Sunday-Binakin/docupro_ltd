@@ -26,14 +26,14 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label class="form-label">Category Id</label>
-                                        <select class="form-select" required="" name="category_id">
+                                        <label class="form-label">Category</label>
+                                        <select class="form-select" required="" 
+                                        name="product_category_id">
                                             <option selected="" disabled="">Update Category</option>
-                                            {{-- <option value="1">Technology</option>
-                                            <option value="2">Agriculture</option> --}}
                                             @foreach($all_category as $category)
-
-                                            <option value="{{ $category->id }}" {{$category->id == $edit_product->product_category_id  ? 'selected' : ''}}>{{ $category->category_name}}</option>
+                                            <option value="{{ $category->id }}" 
+                                    {{$category->id == $edit_product->product_category_id  ? 'selected' : ''}}>
+                                    {{ $category->category_name}}</option>
                                             @endforeach
                                         </select>
                                         @error('category_id')
@@ -43,6 +43,24 @@
 
                                     </div>
                                 </div>
+
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        <label class="form-label">Status </label>
+                                        <select class="form-select" required="" name="status">
+
+                                            <option selected="" disabled="">Update Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Inctive</option>
+
+                                        </select>
+                                        @error('status')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
+                                    </div>
+                                </div>
+
                                 <br>
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Product Description</label>

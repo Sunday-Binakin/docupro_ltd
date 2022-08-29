@@ -26,23 +26,29 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Status</label>
-                                        <select class="form-select"  name="status">
-                                            {{-- <option selected="{{ ($edit_category->status =='active'? 'Active': 'Inactive') }}" disabled="">{{ $edit_category->status }}</option> --}}
-                                            
-                                            <option value="active" {{ $edit_category->status=='active'?'selected':'' }}>Active</option>
-                                            <option value="inactive {{ $edit_category->status=='inactive'?'selected':'' }}">Inactive</option>
+                          
 
-                                        </select>
-                                        @error('status')
+      <div class="col-md-4">
+          <div class="mb-3">
+              <label class="form-label">Status </label>
+              <select class="form-select" required="" name="status">
 
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                  <option selected="" disabled="">Update Status</option>
+                  <option value="1">Active</option>
 
-                                    </div>
-                                </div>
+
+                  <option value="0">Inctive</option>
+
+
+              </select>
+              @error('status')
+              <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+
+          </div>
+      </div>
+
+
                                 <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Cover Image</label>
                                     <div class="col-sm-12">

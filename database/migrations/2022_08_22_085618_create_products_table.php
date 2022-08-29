@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('product_name')->nullable();
             $table->integer('product_category_id')->nullable();
+            $table->integer('status')->nullable();
             $table->mediumText('product_description')->nullable();
             $table->text('product_cover_image')->nullable();
             $table->timestamps();

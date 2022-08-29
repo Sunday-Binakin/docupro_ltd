@@ -75,6 +75,7 @@ class ProductController extends Controller
         Product::insert([
             'product_name' => $request->product_name,
             'product_category_id' => $request->product_category_id,
+            'status' => $request->status,
             'product_description'=> $request->product_description,
             'product_cover_image' => 'uploads/product_cover_images/' . $filename,
             'created_at' => Carbon::now()
@@ -128,17 +129,20 @@ class ProductController extends Controller
             Product::FindOrFail($id)->update([
             'product_name' => $request->product_name,
             'product_category_id' => $request->product_category_id,
+            'status' => $request->status,
             'product_description' => $request->product_description,
             'product_cover_image' => 'uploads/product_cover_images/' . $filename,
             'updated_at' => Carbon::now()
 
             ]);
+            
             toast('Updated without Product Image', 'success', 'top-right')->hideCloseButton();
         
         } else {
             Product::FindOrFail($id)->update([
                 'product_name' => $request->product_name,
                 'product_category_id' => $request->product_category_id,
+                'status' => $request->status,
                 'product_description' => $request->product_description,
                 'updated_at' => Carbon::now()
             ]);

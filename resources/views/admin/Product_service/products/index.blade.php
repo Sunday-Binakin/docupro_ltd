@@ -21,8 +21,8 @@
                                     <th>Sn</th>
                                     <th>Product Name</th>
                                     <th>Category Name</th>
+                                    <th>Status</th>
                                     <th>Description</th>
-
                                     <th> Cover Image</th>
                                     <th>Action</th>
                                 </tr>
@@ -32,11 +32,10 @@
                                 <tr>
                                     <td>{{ $key+1}}</td>
                                     <td>{{ $products->product_name}}</td>
-
                                     <td>{{ $products->category->category_name??'Id not found'}}</td>
+                                    <td>{{$products->status }}</td>
 
                                     <td>{!! $products->product_description !!}</td>
-
                                     <td>
                                      <img width="80px" height="50px" src="{{ asset($products->product_cover_image) }}">
                                     </td>
