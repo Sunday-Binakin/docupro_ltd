@@ -203,6 +203,7 @@
     CKEDITOR.replace( 'product_description' );
     CKEDITOR.replace( 'service_body' );
     CKEDITOR.replace( 'service_summary' );
+    CKEDITOR.replace( 'address' );
 
 
 

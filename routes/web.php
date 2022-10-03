@@ -9,6 +9,7 @@ use App\Http\Controllers\Home\WhyChoseUsController;
 
 use App\Http\Controllers\Services\ServiceController;
 use App\Http\Controllers\NewsMagazine\BlogController;
+use App\Http\Controllers\Settings\SettingsController;
 use App\Http\Controllers\About\AboutCompanyController;
 use App\Http\Controllers\About\TestimonialsController;
 use App\Http\Controllers\NewsMagazine\GalleryController;
@@ -186,6 +187,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('product.edit');
         Route::post('/update/{id}', 'update')->name('product.update');
         Route::get('/destroy/{id}', 'destroy')->name('product.destroy');
+    });
+      Route::prefix('settings/')->controller(SettingsController::class)->group(function () {
+        Route::get('/index', 'index')->name('settings.index');
+        Route::get('/create', 'create')->name('settings.create');
+        Route::post('/store', 'store')->name('settings.store');
+        Route::get('/edit/{id}', 'edit')->name('settings.edit');
+        Route::post('/update/{id}', 'update')->name('settings.update');
+        Route::get('/destroy/{id}', 'destroy')->name('settings.destroy');
     });
 });
 Route::get('/dashboard', function () {
